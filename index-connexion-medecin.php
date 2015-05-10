@@ -70,7 +70,7 @@
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img6.jpg" alt=""><span></span></a></center>
-				<form id="form" name="myConnexion"  method="post" action= "verifConnexion-medecin.php">
+				<form id="form" name="myConnexion"  method="post" action= "verifConnexion.php">
 				
 					<fieldset>
 							<label for="mail">E-mail :</label><BR>
