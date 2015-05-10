@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
      <title>Bienvenue</title>
@@ -51,19 +51,19 @@
       <a href="#"> </a>
       <a href="#" class="last"></a>
     </div>
-    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
     <nav id="bt-menu" class="bt-menu">
         <a href="#" class="bt-menu-trigger"><span>Bienvenue</span></a>
         <ul>
-          <li class="bt-icon "><a href="index.html">Home</a></li>
-         <li class="bt-icon"><a href="index-1.html">About</a></li>
-         <li class="current bt-icon"><a href="index-2.html">Bienvenue</a></li>
-         <li class="bt-icon"><a href="index-3.html">Blog</a></li>
-         <li class="bt-icon"><a href="index-4.html">Reservation</a></li>
-         <li class="bt-icon"><a href="index-5.html">Contacts</a></li>
+          <li class="bt-icon "><a href="index.php">Home</a></li>
+          <li class="bt-icon "></li>
+         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
+		 <li class="bt-icon "></li>
+		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
+         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
         </ul>
       </nav>
     
@@ -76,7 +76,7 @@
 
 <!--==============================Content=================================-->
 
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
   <div class="container_12">
     <div class="grid_12">
       <h3 class="head2">Bienvenue !</h3>
@@ -98,13 +98,13 @@
               <div  id="tab-1" class="tab-content gallery1" >
 				  <div class="grid_3" >
                   <img src="images/page3_img6.jpg" alt=""><span></span>
-                    <div class="col2" ><span class="col3"><a href="index-connexion-patient.html">Se loger</a></span></div>
+                    <div class="col2" ><span class="col3"><a href="index-connexion-patient.php">Se loguer</a></span></div>
                   </div>
               </div>     
               <div  id="tab-2" class="tab-content gallery2">
                  <div class="grid_3">
                  <center><img src="images/page3_img7.jpg" alt=""><span></span></center>
-                    <div class="col2"><span class="col3"><a href="index-inscription-patient.html">S'inscrire</a></span></div>
+                    <div class="col2"><span class="col3"><a href="index-inscription-patient.php">S'inscrire</a></span></div>
                   </div>
 			</div> 
 			 </div>	 </div> 
@@ -121,7 +121,7 @@
 <footer>    
   <div class="container_12">
     <div class="grid_6 prefix_3">
-      <a href="index.html" class="f_logo"><img src="images/f_logo.png" alt=""><span></span></a>
+      <a href="index.php" class="f_logo"><img src="images/f_logo.png" alt=""><span></span></a>
       <div class="copy">
       &copy; 2013 | <a href="#">Privacy Policy</a> <br> Website   designed by <a href="http://store.templatemonster.com?aff=netsib1" rel="nofollow">TemplateMonster.com</a>
       </div>

@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
      <head>
      <title>Home</title>
      <meta charset="utf-8">
+	 		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+		<meta name="Description" content="A free open source web design by Gen.  Free for anyone to use as long as credits are intact. " />
+		<meta name="Keywords" content="open source web design,http://gendesigns.blogspot.com" />
+		<meta name="Copyright" content="Gen" />
+		<meta name="Designed By" content="http://gendesigns.blogspot.com" />
+		<meta name="Language" content="English" />
+		<title> Clinique </title>
      <link rel="icon" href="images/favicon.ico">
      <link  href="images/favicon.ico" />
-     <link rel="stylesheet" href="css/style.css">
+     <link type="text/css" rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
      <script src="js/jquery.equalheights.js"></script>
      <script src="js/jquery.ui.totop.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
+
      <script>
         $(document).ready(function(){
           $( ".block1" ).mouseover(function() {
@@ -21,22 +30,7 @@
           });
           $().UItoTop({ easingType: 'easeOutQuart' });
         }) 
-     </script>
-     <!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-         </a>
-    <![endif]-->
-    <!--[if lt IE 9]>
-    
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
-    <![endif]-->
-    <!--[if lt IE 10]>
-      <link rel="stylesheet" media="screen" href="css/ie1.css">
-    <![endif]-->
-    
+     </script>   
      </head>
      <body class="page1">
 
@@ -46,19 +40,19 @@
    <div class="grid_12"> 
 
     </div>
-    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House"></a> </h1>
+    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
     <div class="menu_block">
 
 
     <nav id="bt-menu" class="bt-menu">
         <a href="#" class="bt-menu-trigger"><span>Connexion</span></a>
         <ul>
-          <li class="current bt-icon "><a href="index.html">Home</a></li>
-         <li class="bt-icon"><a href="index-1.html">About</a></li>
-         <li class="bt-icon"><a href="index-2.html">Connexion</a></li>
-         <li class="bt-icon"><a href="index-3.html">Blog</a></li>
-         <li class="bt-icon"><a href="index-4.html">Reservation</a></li>
-         <li class="bt-icon"><a href="index-5.html">Contacts</a></li>
+          <li class="bt-icon "><a href="index.php">Home</a></li>
+          <li class="bt-icon "></li>
+         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
+		 <li class="bt-icon "></li>
+		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
+         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
         </ul>
       </nav>
     
@@ -66,21 +60,20 @@
 </div>
 <div class="clear"></div>
           </div>
-      </div>
 </header>
 
 <!--==============================Content=================================-->
 
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
-<a href="index-2-patient.html" class="block1">
+<div class="content"><div class="ic"></div>
+<a href="index-2-patient.php" class="block1">
   <img src="images/blur_img1.jpg" alt="">
   <span class="price"><span>Patient<strong></strong></span>
 </a>
-<a href="index-2-medecin.html" class="block1">
+<a href="index-2-medecin.php" class="block1">
   <img src="images/blur_img2.jpg" alt="">
   <span class="price"><span>Médecin</span>
 </a>
-<a href="index-connexion.html" class="block1">
+<a href="index-connexion.php" class="block1">
   <img src="images/blur_img3.jpg" alt="">
   <span class="price"><span>Administrateur<strong></strong></span>
 </a>
@@ -88,18 +81,17 @@
  
 
 <!--==============================footer=================================-->
-
 <footer>    
   <div class="container_12">
     <div class="grid_6 prefix_3">
-      <a href="index.html" class="f_logo"><img src="images/f_logo.png" alt=""></a>
+      <a href="index.php" class="f_logo"><img src="images/f_logo.png" alt=""><span></span></a>
       <div class="copy">
-      &copy; 2015 | <a href="./index.html">RAME Charlotte & TANCHON Melany</a> <br> 12, place de la mairie 31000 Toulouse 
+      &copy; 2013 | <a href="#">Privacy Policy</a> <br> Website   designed by <a href="http://store.templatemonster.com?aff=netsib1" rel="nofollow">TemplateMonster.com</a>
       </div>
     </div>
   </div>
 </footer>
-     <script>
+       <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 
           function(){
