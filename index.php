@@ -73,7 +73,7 @@
   <img src="images/blur_img2.jpg" alt="">
   <span class="price"><span>Médecin</span>
 </a>
-<a href="index-connexion.php" class="block1">
+<a href="index-connexion-admin.php" class="block1">
   <img src="images/blur_img3.jpg" alt="">
   <span class="price"><span>Administrateur<strong></strong></span>
 </a>

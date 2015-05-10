@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
      <head>
-     <title>Bienvenue</title>
+     <title>Menu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
@@ -23,6 +22,8 @@
          
        }) 
      </script>
+
+    
      </head>
      <body  class="">
 
@@ -41,7 +42,7 @@
 
 
     <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Bienvenue</span></a>
+        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon "><a href="index.php">Home</a></li>
           <li class="bt-icon "></li>
@@ -60,59 +61,66 @@
 </header>
 
 <!--==============================Content=================================-->
-
 <div class="content"><div class="ic"></div>
-  <div class="container_12">
+
+<div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Bienvenue !</h3>
+      <h3 class="head2">Connection</h3>
     </div>  
 
-    <div class="tabs tb gallery">
-        <div class="div-nav  ">
-            <div class="grid_12">
-				<div id="container">
-					<div id="content">
-						<ul class="nav">
-							<li class="selected"><a href="#tab-1" class="">Connexion</a></li>
-							<li><a href="#tab-2">Première visite</a></li>
-						</ul>
-					</div>    
-				</div>
-				<div class="div-tabs" >
-					<div  id="tab-1" class="tab-content gallery1" >
+		<div id="container">
+			<div id="content">
+			<?php
+					//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
+					$connexion = mysqli_connect("localhost", "root","","clinique") or die(mysqli_error());
+					if(!$connexion){
+						die('could not connect:'.mysql-error());
+					}
+					$mailAdmin = mysqli_query($connexion, "SELECT mail FROM medecin WHERE idMedecin = 49"); //verifier si le medecin existe
+					$pwdAdmin = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE idMedecin = 49"); //verifier si le medecin existe
+						$mA = mysqli_fetch_array($mailAdmin, MYSQLI_NUM);
+						$pA = mysqli_fetch_array($pwdAdmin, MYSQLI_NUM);
+					
+					
+					
+					$db = mysqli_select_db($connexion, 'clinique');
+					$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
+					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
+					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+					
+					// Pour la session
 
-						<center><img src="images/page3_img6.jpg" alt=""><span></span>
-							<br><a href="index-connexion-medecin.php">Se loguer</a>
-						</center>
-						</div>     
-					<div  id="tab-2" class="tab-content gallery2">
+					if($tab[0]) // Si le mail existe.
+					{
+						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
+						$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
+						if($pwd == $infos[0])
+						{
+							// C'est ici que je mets le code servant à effectuer la connexion, car le mot de passe est bon.
+							if ($_POST['mail']==$mA[0] && $_POST['pwd'] ==$pA[0]  ) {
+								// on la démarre :)
+								session_start ();
+								// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+								$_SESSION['mail'] = $mail;
+								$_SESSION['pwd'] = $pwd;
+								
+								// on redirige notre visiteur vers une page de notre section membre
+								header ('location: pageMembreAdmin.php');
+							}
+						}
+					}
+						else // Si le couple mail/ mot de passe n'est pas bon.
+						{
+							header ('location: adminError.php');
+						}
+					
+				?>
+			</div>
+		</div>      
+     </div>
 
-					<center>		<img src="images/page3_img7.jpg" alt=""><span></span>
-                    <br><a href="index-inscription-medecin.php">S'inscrire</a>
-					</center>
-                  </div>
-			</div> 
-			 </div>	
-			 </div> 
-			 </div>	  
-			 </div>	
- </div>			 
-                  
-               
-          
 
-<!--==============================footer=================================-->
-
-<footer>    
-  <div class="container_12">
-    <div class="grid_6 prefix_3">
-      <a href="index.php" class="f_logo"><img src="images/f_logo.png" alt=""><span></span></a>
-      <div class="copy">
-      &copy; 2013 | <a href="#">Privacy Policy</a> <br> Website   designed by <a href="http://store.templatemonster.com?aff=netsib1" rel="nofollow">TemplateMonster.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

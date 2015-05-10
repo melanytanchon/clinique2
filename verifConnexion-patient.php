@@ -98,11 +98,13 @@
 								header ('location: pageMembrePatient.php');
 							}
 						}
+						}
 						else // Si le couple mail/ mot de passe n'est pas bon.
 						{
-							echo 'Vous n\'avez pas rentré les bons identifiants';
+						
+							header ('location: patientError.php');
 						}
-					}
+					
 				?>
 			</div>
 		</div>      

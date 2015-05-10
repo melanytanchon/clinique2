@@ -81,6 +81,11 @@
 					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
 					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
 					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+					$name = mysqli_query($connexion, "SELECT nom FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$nom = mysqli_fetch_array($name, MYSQLI_NUM);
+					echo $tab[0];	
+					
+					
 					if($tab[0]) // Si le mail existe.
 					{
 						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
@@ -94,15 +99,17 @@
 								// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
 								$_SESSION['mail'] = $mail;
 								$_SESSION['pwd'] = $pwd;
+								$_SESSION['name'] = $nom[0];
 								// on redirige notre visiteur vers une page de notre section membre
 								header ('location: pageMembreMedecin.php');
 							}
 						}
+						}
 						else // Si le couple mail/ mot de passe n'est pas bon.
 						{
-							echo 'Vous n\'avez pas rentré les bons identifiants';
+							header ('location: medecinError.php');
 						}
-					}
+					
 				?>
 			</div>
 		</div>      

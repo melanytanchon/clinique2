@@ -22,21 +22,7 @@
          
        }) 
      </script>
-     <!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-         </a>
 
-    <![endif]-->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie.css">
-    <![endif]-->
-    <!--[if lt IE 10]>
-      <script src="js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="css/ie1.css">
-    <![endif]-->
     
      </head>
      <body  class="">
@@ -79,7 +65,8 @@
 <div class="content"><div class="ic"></div>
   <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Bienvenue !</h3>
+      <h3 class="head2">Veuillez d'abord vous enregistrer</h3>
+	  <center><img src="images/erreurs.jpg" alt="" align = center><span></span></center>
     </div>  
 
     <div class="tabs tb gallery">
@@ -88,30 +75,16 @@
 			     		<div id="container">
 			<div id="content">
                  <ul class="nav">
-                    <li class="selected"><a href="#tab-1" class="">Connexion</a>
-
-					</li>
-                    <li><a href="#tab-2">Première visite</a></li>
+                    <li class="selected"><a href="#tab-1" class=""></a></li>
                  </ul>
              </div>    
              </div>
-
-             <div class="div-tabs" >
-
-              <div  id="tab-1" class="tab-content gallery1" >
-			  			 					<center><img src="images/page3_img6.jpg" alt=""><span></span>
-								<br><a href="index-connexion-patient.php">Se loguer</a>
-					</center>
-
-              </div>     
-              <div  id="tab-2" class="tab-content gallery2">
-
-                 <center><img src="images/page3_img7.jpg" alt=""><span></span>
-                 <br><a href="index-inscription-patient.php">S'inscrire</a>
-				 </center>
-                  </div>
+			<center><a href="index-inscription-medecin.php">Enregistrement</a><center><br>
+			<center><a href="index.php">Acceuil</a><center>
+     
+             
 			</div> 
-			 </div>	
+			 </div>	  
 			 </div> 
 			 </div>	  
 			 </div>	

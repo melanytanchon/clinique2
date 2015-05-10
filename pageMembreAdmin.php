@@ -54,8 +54,7 @@
 
   <div class="container_12">
     <div class="grid_8">
-	<?php session_start() ?>
-      <h3>Bonjour <?php echo $_SESSION['name'] ?></h3>
+      <h3>Bonjour Mr DUROUX</h3>
       <img src="images/page5_img1.jpg" alt="" class="img_inner fleft">
       <div class="extra_wrapper">
         <p class="col1">Hoivamus at magna non nunc tristiquencus. Fliquam nibh ante, egestas id dictum modo luctus libero. Praesent faucibus malesuad faucibu. </p>
@@ -63,7 +62,7 @@
         </div>
         <p>Gamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum ammodo luctus libero. Praesent faucibus malesuada faucibus. Forem ipsum dolor sit ametconsectetur adipiscing elit. <span class="cont_phone">For Parties call (023) 101-1100</span> . Nullam  consectetur orci sed. </p>
         Murabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros. <span class="cont_phone">For Parties call (023) 101-1100</span> <br>
-      <a href="#" class="reserv"><span>* </span> Cliquez ici pour saisir votre questionnaire</a>
+      <a href="#" class="reserv"><span>@ </span> Click here to Make a reservation Online</a>
     </div>
     <div class="grid_4">
       <div class="hours">
