@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Bienvenue</title>
+     <title>Menu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
@@ -23,44 +23,38 @@
        }) 
      </script>
 
-    
      </head>
      <body  class="">
 
 <?php include("headerConnexion.php") ?>
-
 <!--==============================Content=================================-->
-
 <div class="content"><div class="ic"></div>
-  <div class="container_12">
+
+<div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Veuillez d'abord vous enregistrer</h3>
-	  <center><img src="images/erreurs.jpg" alt="" align = center><span></span></center>
+      <h3 class="head2">Inscription</h3>
     </div>  
 
-    <div class="tabs tb gallery">
-             <div class="div-nav  ">
-             <div class="grid_12">
-			     		<div id="container">
+		<div id="container">
 			<div id="content">
-                 <ul class="nav">
-                    <li class="selected"><a href="#tab-1" class=""></a></li>
-                 </ul>
-             </div>    
-             </div>
-			<center><a href="index-inscription-medecin.php">Enregistrement</a><center><br>
-			<center><a href="index.php">Acceuil</a><center>
-     
-             
+				<p><BR>
+				<b>Annuler l'inscription en cours :</b><BR>
+				<form name="myForm"  method="post" action="annulerInscriptionAction.php">
+				<fieldset>
+					<legend> Vos données: </legend><BR>
+					<label for="mail">E-mail :</label><BR>
+					<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR>
+					<label for="pwd">Mot de passe :</label><BR>
+					<input type="password" name="pwd"><span id="maZonePwd" class="error"></span><BR>
+				</fieldset>
+				<Input type ="submit" value ="Valider"/>
+				<input type="reset" value="Effacer"/><BR>
+				</form>
+				</p>
 			</div> 
-			 </div>	  
-			 </div> 
-			 </div>	  
-			 </div>	
- </div>			 
-                  
-               
-          
+		</div>
+     </div>
+ </div>
 
           
 

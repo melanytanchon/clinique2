@@ -27,38 +27,7 @@
      </head>
      <body  class="">
 
-<!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-   <div class="grid_12"> 
-    <div class="socials">
-      <a href="#"></a>
-      <a href="#"></a>
-      <a href="#"> </a>
-      <a href="#" class="last"></a>
-    </div>
-    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
-    <div class="menu_block">
-
-
-    <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-        <ul>
-          <li class="bt-icon "><a href="index.php">Home</a></li>
-          <li class="bt-icon "></li>
-         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
-		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
-         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
-        </ul>
-      </nav>
-    
- <div class="clear"></div>
-</div>
-<div class="clear"></div>
-          </div>
-      </div>
-</header>
+<?php include("headerConnexion.php") ?>
 
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
@@ -80,6 +49,8 @@
 					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
 					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
 					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+					$name = mysqli_query($connexion, "SELECT nom FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$nom = mysqli_fetch_array($name, MYSQLI_NUM);
 					if($tab[0]) // Si le mail existe.
 					{
 						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
@@ -96,6 +67,7 @@
 									// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
 									$_SESSION['mail'] = $mail;
 									$_SESSION['pwd'] = $pwd;
+									$_SESSION['name'] = $nom[0];
 									// on redirige notre visiteur vers une page de notre section membre
 									header ('location: pageAdministrateur.php');
 								}
@@ -108,6 +80,7 @@
 										// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
 										$_SESSION['mail'] = $mail;
 										$_SESSION['pwd'] = $pwd;
+										$_SESSION['name'] = $nom[0];
 										// on redirige notre visiteur vers une page de notre section membre
 										header ('location: pageMembreMedecin.php');
 									}
@@ -128,7 +101,11 @@
 		</div>      
      </div>
 
+          
 
+<!--==============================footer=================================-->
+
+<?php include("footer.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

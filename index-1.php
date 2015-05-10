@@ -15,34 +15,7 @@
      </head>
      <body  class="">
 
-<!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-   <div class="grid_12"> 
-
-    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
-    <div class="menu_block">
-
-
-    <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-        <ul>
-          <li class="bt-icon "><a href="index.php">Home</a></li>
-          <li class="bt-icon "></li>
-         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
-		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
-         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
-        </ul>
-      </nav>
-    
- <div class="clear"></div>
-</div>
-<div class="clear"></div>
-          </div>
-      </div>
-</header>
-
+<?php include("headerConnexion.php") ?>
 <!--==============================Content=================================-->
 
 <div class="content"><div class="ic"></div>
@@ -83,7 +56,7 @@
       <div class="box maxheight">
         <img src="images/page2_img1.jpg" alt="">
         <div class="title"><a href="#">Charlotte Ramé</a></div>
-n° Etu : 
+n° Etu : 20802809
 
       </div>
     </div>
@@ -102,20 +75,12 @@ n° Etu : 21406969
 
   </div>
 </div>
+          
 
 <!--==============================footer=================================-->
 
-<footer>    
-  <div class="container_12">
-    <div class="grid_6 prefix_3">
-      <a href="index.php" class="f_logo"><img src="images/f_logo.png" alt=""></a>
-      <div class="copy">
-      &copy; 2015 | <a href="./index.php">RAME Charlotte & TANCHON Melany</a> <br> 12, place de la mairie 31000 Toulouse 
-      </div>
-    </div>
-  </div>
-</footer>
-      <script>
+<?php include("footer.php"); ?>
+       <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 
           function(){

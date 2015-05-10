@@ -26,38 +26,7 @@
      </head>
      <body  class="">
 
-<!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-   <div class="grid_12"> 
-    <div class="socials">
-      <a href="#"></a>
-      <a href="#"></a>
-      <a href="#"> </a>
-      <a href="#" class="last"></a>
-    </div>
-    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
-    <div class="menu_block">
-
-
-    <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-        <ul>
-          <li class="bt-icon "><a href="index.php">Home</a></li>
-          <li class="bt-icon "></li>
-         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
-		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
-         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
-        </ul>
-      </nav>
-    
- <div class="clear"></div>
-</div>
-<div class="clear"></div>
-          </div>
-      </div>
-</header>
+<?php include("headerConnexion.php") ?>
 
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
@@ -66,10 +35,11 @@
     <div class="grid_12">
       <h3 class="head2">Inscription</h3>
     </div>  
-
+<script type="text/javascript" src="js/formulairePatients.js"></script>
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
+			
 				<form name="myForm"  method="post" action="inscriptionPatientBD.php">
 					<BR>
 					<fieldset>
@@ -81,25 +51,27 @@
 						<label for="mail">E-mail :</label><BR>
 						<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR>
 						<?php
-						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
+						
+						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
 						if(!$connexion){
 							die('could not connect:'.mysql-error());
 						}
 						
 						$db = mysqli_select_db($connexion, 'clinique');
-						$result = mysqli_query($connexion, "SELECT nomSpe FROM specialite");
+						$result = mysqli_query($connexion, "SELECT * FROM specialite");
 						
-					echo "<label for=\"specialites\">Specialité :<BR></label>";
-							echo "<select name=\"specialites\" id=\"specialites\">";
-							
-							while ($row = mysqli_fetch_array($result)){
-								echo "<option value=\"".$row['nomSpe']."\">".$row['nomSpe']."</option>";
-							}
-							
-							echo "</select><BR>"
+						echo "<label for=\"specialites\">Specialités :<BR></label>";
+						echo "<select name=\"specialites\" id=\"specialites\" onchange=\"request(this)\">";
+						echo "<option value=\"\" disabled selected>Choisissez une spécialité</option>";
+						while ($row = mysqli_fetch_array($result)){
+							echo "<option value=\"".$row['idSpe']."\">".$row['nomSpe']."</option>";
+						}
+						
+						echo "</select><span id=\"loader\" style=\"display: none;\"><img src=\"images/loader.gif\" alt=\"loading\"/></span><BR>";
+						echo "<label for=\"medecins\">Médecins :<BR></label>";
+						echo "<select id=\"medecins\" disabled><option value=\"default\">Choisissez une spécialité</option></select>";
 					?>
 					<BR><BR>
-					</fieldset>
 					</fieldset>
 					<fieldset>
 						<legend> Votre mot de passe :</legend><BR>
@@ -112,12 +84,16 @@
 						<Input type ="submit" value ="Valider"/>
 						<input type="reset" value="Effacer"/><BR>
 					</p>
-				</form>	
+				</form>
 			</div>
 		</div>      
      </div>
  </div>
+          
 
+<!--==============================footer=================================-->
+
+<?php include("footer.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

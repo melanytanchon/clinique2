@@ -34,33 +34,7 @@
      </head>
      <body class="page1">
 
-<!--==============================header=================================-->
- <header> 
-  <div class="container_12">
-   <div class="grid_12"> 
-
-    </div>
-    <h1><a href="index.php"><img src="images/logo.png" alt="Boo House"></a> </h1>
-    <div class="menu_block">
-
-
-    <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Connexion</span></a>
-        <ul>
-          <li class="bt-icon "><a href="index.php">Home</a></li>
-          <li class="bt-icon "></li>
-         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
-		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
-         <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
-        </ul>
-      </nav>
-    
- <div class="clear"></div>
-</div>
-<div class="clear"></div>
-          </div>
-</header>
+<?php include("headerConnexion.php") ?>
 
 <!--==============================Content=================================-->
 
@@ -81,16 +55,7 @@
  
 
 <!--==============================footer=================================-->
-<footer>    
-  <div class="container_12">
-    <div class="grid_6 prefix_3">
-      <a href="index.php" class="f_logo"><img src="images/f_logo.png" alt=""><span></span></a>
-      <div class="copy">
-      &copy; 2013 | <a href="#">Privacy Policy</a> <br> Website   designed by <a href="http://store.templatemonster.com?aff=netsib1" rel="nofollow">TemplateMonster.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<?php include("footer.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 
