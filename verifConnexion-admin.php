@@ -71,8 +71,8 @@
 		<div id="container">
 			<div id="content">
 			<?php
-					//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
-					$connexion = mysqli_connect("localhost", "root","","clinique") or die(mysqli_error());
+					$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
+					
 					if(!$connexion){
 						die('could not connect:'.mysql-error());
 					}
