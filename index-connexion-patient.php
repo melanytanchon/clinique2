@@ -44,10 +44,10 @@
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon "><a href="index.php">Home</a></li>
-          <li class="bt-icon "></li>
-         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
-		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
+         <li class="bt-icon"><a href="index-1.php">About</a></li>
+         <li class="current bt-icon"><a href="index-2.php">Menu</a></li>
+         <li class="bt-icon"><a href="index-3.php">Blog</a></li>
+         <li class="bt-icon"><a href="index-4.php">Reservation</a></li>
          <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
         </ul>
       </nav>
@@ -60,7 +60,7 @@
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic"></div>
+<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
 
 <div class="container_12">
     <div class="grid_12">
@@ -70,7 +70,7 @@
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img6.jpg" alt=""><span></span></a></center>
-				<form id="form" name="myConnexion"  method="post" action= "verifConnexion-medecin.php">
+				<form id="form" name="myConnexion"  method="post" action= "verifConnexion-patient.php">
 				
 					<fieldset>
 							<label for="mail">E-mail :</label><BR>

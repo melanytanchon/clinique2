@@ -75,8 +75,8 @@
 					if(!empty($_POST['mail']))
 					{
 						// D'abord, je me connecte à la base de données.
-						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
-						//$connexion = mysqli_connect("localhost", "root");
+							$connexion = mysqli_connect("localhost", "root", "","clinique") or die(mysqli_error());
+						//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
 						
 						mysqli_select_db($connexion, 'clinique');
 						// Je mets aussi certaines sécurités ici…

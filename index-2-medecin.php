@@ -61,7 +61,7 @@
 
 <!--==============================Content=================================-->
 
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
   <div class="container_12">
     <div class="grid_12">
       <h3 class="head2">Bienvenue !</h3>

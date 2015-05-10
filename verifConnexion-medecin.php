@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
      <title>Menu</title>
@@ -23,6 +23,7 @@
        }) 
      </script>
 
+    
      </head>
      <body  class="">
 
@@ -44,10 +45,10 @@
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
           <li class="bt-icon "><a href="index.php">Home</a></li>
-         <li class="bt-icon"><a href="index-1.php">About</a></li>
-         <li class="current bt-icon"><a href="index-2.php">Menu</a></li>
-         <li class="bt-icon"><a href="index-3.php">Blog</a></li>
-         <li class="bt-icon"><a href="index-4.php">Reservation</a></li>
+          <li class="bt-icon "></li>
+         <li class="current bt-icon"><a href="index-2.php">Bienvenue</a></li>		
+		 <li class="bt-icon "></li>
+		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
          <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
         </ul>
       </nav>
@@ -60,7 +61,7 @@
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
 
 <div class="container_12">
     <div class="grid_12">
@@ -69,19 +70,40 @@
 
 		<div id="container">
 			<div id="content">
-			<center><img src="images/page3_img6.jpg" alt=""><span></span></a></center>
-				<form id="form" name="myConnexion"  method="post" action= "verifConnexion.php">
-				
-					<fieldset>
-							<label for="mail">E-mail :</label><BR>
-							<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR><BR>
-							<label for="pwd">Mot de passe :</label><BR>
-							<input type="password" name="pwd" placeholder="à remplir"><span id="maZonePwd" class="error"></span><BR>
-					</fieldset>
-					
-					<Input type ="submit" value ="Valider">
-					<input type="reset" value="Effacer"><BR>
-				</form>	
+			<?php
+					//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
+					$connexion = mysqli_connect("localhost", "root","","clinique") or die(mysqli_error());
+					if(!$connexion){
+						die('could not connect:'.mysql-error());
+					}
+					$db = mysqli_select_db($connexion, 'clinique');
+					$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
+					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
+					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+					if($tab[0]) // Si le mail existe.
+					{
+						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
+						$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
+						if($pwd == $infos[0])
+						{
+							// C'est ici que je mets le code servant à effectuer la connexion, car le mot de passe est bon.
+							if (isset($_POST['mail']) && isset($_POST['pwd'])) {
+								// on la démarre :)
+								session_start ();
+								// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+								$_SESSION['mail'] = $mail;
+								$_SESSION['pwd'] = $pwd;
+								// on redirige notre visiteur vers une page de notre section membre
+								header ('location: pageMembreMedecin.php');
+							}
+						}
+						else // Si le couple mail/ mot de passe n'est pas bon.
+						{
+							echo 'Vous n\'avez pas rentré les bons identifiants';
+						}
+					}
+				?>
 			</div>
 		</div>      
      </div>

@@ -70,7 +70,7 @@
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
-				<form name="myForm"  method="post" action="inscriptionDB.php">
+				<form name="myForm"  method="post" action="inscriptionPatientBD.php">
 					<BR>
 					<fieldset>
 						<legend> A propos de vous : </legend><BR>
@@ -81,9 +81,8 @@
 						<label for="mail">E-mail :</label><BR>
 						<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR>
 						<?php
-						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
-						//$connexion = mysqli_connect("localhost", "root") or die(mysqli_error());
-						
+							$connexion = mysqli_connect("localhost", "root", "","clinique") or die(mysqli_error());
+						//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 						if(!$connexion){
 							die('could not connect:'.mysql-error());
 						}
@@ -91,15 +90,14 @@
 						$db = mysqli_select_db($connexion, 'clinique');
 						$result = mysqli_query($connexion, "SELECT nomSpe FROM specialite");
 						
-						echo "<label for=\"specialites\">Specialités :<BR></label>";
-						echo "<input list=\"specialites\" type=\"text\" id=\"choix_specialite\">";
-						echo "<datalist id=\"specialites\">";
-						
-						while ($row = mysqli_fetch_array($result)){
-							echo "<option value=\"".$row['nomSpe']."\">";
-						}
-						
-						echo "</datalist><BR>"
+					echo "<label for=\"specialites\">Specialité :<BR></label>";
+							echo "<select name=\"specialites\" id=\"specialites\">";
+							
+							while ($row = mysqli_fetch_array($result)){
+								echo "<option value=\"".$row['nomSpe']."\">".$row['nomSpe']."</option>";
+							}
+							
+							echo "</select><BR>"
 					?>
 					<BR><BR>
 					</fieldset>

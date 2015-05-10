@@ -61,7 +61,7 @@
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
 
 <div class="container_12">
     <div class="grid_12">
@@ -82,8 +82,8 @@
 						<label for="mail">E-mail :</label><BR>
 						<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR>
 						<?php
-							//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
-							$connexion = mysqli_connect("localhost", "root") or die(mysqli_error());
+							$connexion = mysqli_connect("localhost", "root", "","clinique") or die(mysqli_error());
+						//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
 							
 							if(!$connexion){
 								die('could not connect:'.mysql-error());

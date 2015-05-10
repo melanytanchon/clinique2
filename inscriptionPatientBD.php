@@ -23,7 +23,6 @@
        }) 
      </script>
 
-    
      </head>
      <body  class="">
 
@@ -61,53 +60,47 @@
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Connection</h3>
+      <h3 class="head2">Inscription</h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
-			<?php
-					//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
-					$connexion = mysqli_connect("localhost", "root") or die(mysqli_error());
-					if(!$connexion){
-						die('could not connect:'.mysql-error());
-					}
-					$db = mysqli_select_db($connexion, 'clinique');
-					$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
-					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
-					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
-					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
-					if($tab[0]) // Si le mail existe.
+			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
+				<?php 
+					if(!empty($_POST['mail']))
 					{
-						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
-						$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
-						if($pwd == $infos[0])
-						{
-							// C'est ici que je mets le code servant à effectuer la connexion, car le mot de passe est bon.
-							if (isset($_POST['mail']) && isset($_POST['pwd'])) {
-								// on la démarre :)
-								session_start ();
-								// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-								$_SESSION['mail'] = $mail;
-								$_SESSION['pwd'] = $pwd;
-								// on redirige notre visiteur vers une page de notre section membre
-								header ('location: pageMembreMedecin.php');
-							}
-						}
-						else // Si le couple mail/ mot de passe n'est pas bon.
-						{
-							echo 'Vous n\'avez pas rentré les bons identifiants';
-						}
+						// D'abord, je me connecte à la base de données.
+						$connexion = mysqli_connect("localhost", "root", "","clinique");
+						//$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
+						mysqli_select_db($connexion, 'clinique');
+						// Je mets aussi certaines sécurités ici…
+						$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
+						$nom = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['nom']));
+						$prenom = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['prenom']));
+						$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
+						// Je vais crypter le mot de passe.
+						$pwd = sha1($pwd);
+						//ajouter l'idSpe à la table medecin
+						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
+
+						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+						$idSpe = $tab[0];
+						mysqli_query($connexion, "INSERT INTO patient VALUES('', '$nom', '$prenom', '$mail','$pwd','','','$idSpe','')");						
+						
+						//recapitulatif des informations données
+						echo "Votre nom est : ".$nom."<br>";
+						echo "Votre prénom est : ".$prenom."<br>";
+						echo "Votre mail est : ".$mail."<br>";
 					}
 				?>
 			</div>
 		</div>      
      </div>
-
+ </div>
 
        <script>
       $(document).ready(function(){ 

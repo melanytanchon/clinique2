@@ -48,7 +48,7 @@
 </header>
 
 <!--==============================Content=================================-->
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - December 02, 2013!</div>
+<div class="content"><div class="ic"></div>
 
  <div class="container_12">
     <div class="grid_8">  
