@@ -33,13 +33,13 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Connection</h3>
+      <h3 class="head2">Connexion</h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img6.jpg" alt=""><span></span></a></center>
-				<form id="form" name="myConnexion"  method="post" action= "verifConnexion.php">
+				<form id="form" name="myConnexion"  method="post" action= "verifConnexionAdmin.php">
 				
 					<fieldset>
 							<label for="mail">E-mail :</label><BR>
@@ -54,21 +54,8 @@
 			</div>
 		</div>      
      </div>
+</div>
 
-
-       <script>
-      $(document).ready(function(){ 
-         $(".bt-menu-trigger").toggle( 
-          function(){
-            $('.bt-menu').addClass('bt-menu-open'); 
-          }, 
-          function(){
-            $('.bt-menu').removeClass('bt-menu-open'); 
-          } 
-        ); 
-      }) 
-    </script>
-	
 	          
 
 <!--==============================footer=================================-->

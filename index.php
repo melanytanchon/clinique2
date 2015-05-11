@@ -45,7 +45,7 @@
 </a>
 <a href="index-2-medecin.php" class="block1">
   <img src="images/blur_img2.jpg" alt="">
-  <span class="price"><span>Médecin</span>
+  <span class="price"><span>Médecin<strong></strong></span>
 </a>
 <a href="index-connexion-admin.php" class="block1">
   <img src="images/blur_img3.jpg" alt="">

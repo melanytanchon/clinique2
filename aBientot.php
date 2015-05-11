@@ -1,26 +1,28 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Contacts</title>
+     <title>Menu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
-     <link rel="stylesheet" href="css/form.css">
+     <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
      <script src="js/jquery.equalheights.js"></script>
      <script src="js/jquery.ui.totop.js"></script>
-     <script src="js/TMForm.js"></script>
+     <script src="js/jquery.tabs.min.js"></script>
+     <script src="js/touchTouch.jquery.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
      <script>
         $(document).ready(function(){
 
           $().UItoTop({ easingType: 'easeOutQuart' });
-        }) 
+         $('.gallery a.gal').touchTouch();
+         
+       }) 
      </script>
- 
+
      </head>
      <body  class="">
 
@@ -29,29 +31,30 @@
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
 
-<div class="content contact">
-  <div class="container_12">
-      <div class="grid_12">
-      <div class="clear"></div>
-      <div class="grid_4">
-        <h3 class="head3">Address</h3>
-              <div class="map">
-                <address>
-                 <dl>
-				 <dt>12, place de la mairie. <br>
-                     31400 TOULOUSE,<br>
-                     France.
-                     </dt>
-                 <dd><span>Telephone:</span>+33 (0)7 00 00 00 00</dd>
-                 <dd>E-mail: <a href="#" class="col2">duroux@clinique.duroux.fr</a></dd>                              </dl>
-                 </address>
-                 <p>Nésitez pas à contacter la clinique Duroux en cas de besoin d'information(s) ou de problème(s).</p>
-              </div>        
-          </div>
-      </div>
-    </div>
-  </div>
-</div>         
+<div class="container_12">
+    <div class="grid_12">
+      <h3 class="head2">À Bientôt ! </h3>
+    </div>  
+
+				<div id="container">
+			<div id="content">
+			
+						<ul class="nav">
+							<li class="selected"><a href="index.php" class="">Accueil</a></li>
+						</ul>
+				<p>
+				<center>
+				<BR>
+				<b>	Votre annulation a bien été prise en compte.</b><BR></center>
+				
+			
+					</p>
+					</div>    
+				</div>
+     </div>
+ </div>
+
+          
 
 <!--==============================footer=================================-->
 

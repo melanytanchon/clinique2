@@ -51,7 +51,7 @@
 						$prenom = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['prenom']));
 						$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
 						// Je vais crypter le mot de passe.
-						$pwd = sha1($pwd);
+						
 						//ajouter l'idSpe à la table medecin
 						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
 

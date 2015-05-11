@@ -33,20 +33,21 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Inscription</h3>
+      <h3 class="head2">Annulation</h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
 				<p>
+				<center>
 				<BR>
-				<b>Nous avons pris en compte votre inscription.</b><BR>
-				<b>La validation par l'administrateur n'a pas encore été faire.</b><BR>
+				<b>	Nous avons pris en compte votre inscription.</b><BR>
+				<b>La validation par l'administrateur n'a pas encore été faite.</b><BR>
 				<b>Cela ne devrait plus tarder...</b><BR>
-				<b>A très bientôt sur votre compte.</b><BR><BR>
-				<b>Si vous souhaitez annuler votre inscription avant validation de notre part,</b><BR>
-				<b>cliquez sur le lien ci-dessous</b><BR><BR>
-				<li><a href="AnnulerInscription.php">Annuler mon inscription</a></li>
+				<b>À très bientôt sur votre compte.</b>
+				<b>Si vous souhaitez annuler votre inscription, cliquez</b>
+				
+				<a href="AnnulerInscription.php"><i><b>ICI</b></i></a></center>
 				</p>
 			</div> 
 		</div>

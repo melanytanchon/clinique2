@@ -47,19 +47,28 @@
 					$db = mysqli_select_db($connexion, 'clinique');
 					$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
 					$pwd = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['pwd']));
-					$res = mysqli_query($connexion, "SELECT mail FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$res = mysqli_query($connexion, "SELECT mail FROM patient WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
 					$tab = mysqli_fetch_array($res, MYSQLI_NUM);
-					$name = mysqli_query($connexion, "SELECT nom FROM medecin WHERE mail =\"".$_POST['mail']."\""); //verifier si le medecin existe
+					$name = mysqli_query($connexion, "SELECT nom FROM patient WHERE mail =\"".$_POST['mail']."\"");
 					$nom = mysqli_fetch_array($name, MYSQLI_NUM);
+					$id = mysqli_query($connexion, "SELECT idPatient FROM patient WHERE mail =\"".$_POST['mail']."\"");
+					$idP = mysqli_fetch_array($id, MYSQLI_NUM);					
+					$questionnaire = mysqli_query($connexion, "SELECT idQuestionnaire FROM patient WHERE mail =\"".$_POST['mail']."\"");					
+					$quest = mysqli_fetch_array($questionnaire, MYSQLI_NUM);
+					$prenom = mysqli_query($connexion, "SELECT prenom FROM patient WHERE mail =\"".$_POST['mail']."\"");
+					$pn = mysqli_fetch_array($prenom, MYSQLI_NUM);					
+					$medecin= mysqli_query($connexion, "SELECT idMedecin FROM patient WHERE mail =\"".$_POST['mail']."\"");
+					$med = mysqli_fetch_array($medecin, MYSQLI_NUM);							
 					if($tab[0]) // Si le mail existe.
 					{
-						$quete = mysqli_query($connexion, "SELECT pwd FROM medecin WHERE mail=\"".$_POST['mail']."\"");
+						$quete = mysqli_query($connexion, "SELECT pwd FROM patient WHERE mail=\"".$_POST['mail']."\"");
 						$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
 						if($pwd == $infos[0])
 						{
 							// C'est ici que je mets le code servant à effectuer la connexion, car le mot de passe est bon.
-							if (isset($_POST['mail']) && isset($_POST['pwd']) ) { 
-								$quete = mysqli_query($connexion, "SELECT administrateur FROM medecin WHERE mail=\"".$_POST['mail']."\"");//on regarde dans un premier temps si c'est l'administrateur
+							if (isset($_POST['mail']) && isset($_POST['pwd']) ) 
+							{ 
+								$quete = mysqli_query($connexion, "SELECT accepte FROM patient WHERE mail=\"".$_POST['mail']."\"");
 								$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
 								if($infos[0] == 1){
 									// on la démarre :)
@@ -68,40 +77,37 @@
 									$_SESSION['mail'] = $mail;
 									$_SESSION['pwd'] = $pwd;
 									$_SESSION['name'] = $nom[0];
-									// on redirige notre visiteur vers une page de notre section membre
-									header ('location: pageAdministrateur.php');
+									$_SESSION['id'] = $idP[0];
+									$_SESSION['quest'] = $quest[0];
+									$_SESSION['surname'] = $pn[0];
+									$_SESSION['idMedecin'] = $med[0];
+									// Redirection en fonction de s'il a ou non un questionnaire	
+									if($quest[0] == 1){header ('location: pageMembrePatientAvecQuestionnaire.php');}
+									else{header ('location: pageMembrePatientSansQuestionnaire.php');}	
 								}
-								else{//on va verifier si le medecin a ete accepte par l'adm, si ce n'est pas le cas : redirection vers page d'attente
-									$quete = mysqli_query($connexion, "SELECT accepte FROM medecin WHERE mail=\"".$_POST['mail']."\"");
-									$infos = mysqli_fetch_array($quete, MYSQLI_NUM);
-									if($infos[0] == 1){
-										// on la démarre :)
-										session_start ();
-										// on enregistre les paramètres de notre visiteur comme variables de session ($mail et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-										$_SESSION['mail'] = $mail;
-										$_SESSION['pwd'] = $pwd;
-										$_SESSION['name'] = $nom[0];
-										// on redirige notre visiteur vers une page de notre section membre
-										header ('location: pageMembreMedecin.php');
-									}
-									else {
-										header ('location: attenteValidation.php');
-									}
-								}
+								
+								else {
+									header ('location: attenteValidation.php');
+									}								
 							}
+												
 						}
+						else // Si le mot de passe n'est pas bon.
+							{
+							header ('location: PatientError.php');
+							}					
 					}
-						else // Si le couple mail/ mot de passe n'est pas bon.
-						{
-							header ('location: adminError.php');
-						}
+						else // Si le mail n'est pas bon.
+							{
+							header ('location: PatientError.php');
+							}
 					
 				?>
 			</div>
 		</div>      
      </div>
 
-          
+</div>          
 
 <!--==============================footer=================================-->
 

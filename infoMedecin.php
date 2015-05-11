@@ -1,61 +1,56 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Contacts</title>
+     <title>Reservation</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
-     <link rel="stylesheet" href="css/form.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
      <script src="js/jquery.equalheights.js"></script>
      <script src="js/jquery.ui.totop.js"></script>
-     <script src="js/TMForm.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
      <script>
         $(document).ready(function(){
 
           $().UItoTop({ easingType: 'easeOutQuart' });
         }) 
      </script>
- 
+
+    
      </head>
      <body  class="">
 
-<?php include("headerConnexion.php") ?>
+<?php include("headerDeconnexion.php") ?>
+ 
 
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
 
-<div class="content contact">
   <div class="container_12">
       <div class="grid_12">
-      <div class="clear"></div>
-      <div class="grid_4">
-        <h3 class="head3">Address</h3>
-              <div class="map">
-                <address>
-                 <dl>
-				 <dt>12, place de la mairie. <br>
-                     31400 TOULOUSE,<br>
-                     France.
-                     </dt>
-                 <dd><span>Telephone:</span>+33 (0)7 00 00 00 00</dd>
-                 <dd>E-mail: <a href="#" class="col2">duroux@clinique.duroux.fr</a></dd>                              </dl>
-                 </address>
-                 <p>Nésitez pas à contacter la clinique Duroux en cas de besoin d'information(s) ou de problème(s).</p>
-              </div>        
-          </div>
-      </div>
-    </div>
-  </div>
-</div>         
+      <h3 class="head2">PAS ENCORE FAIT</h3>
+	  <center><img src="images/agree.png" alt="" align = center><span></span><br><br><br></center>
+    </div> 
+ 
+					<div id="content">
+					<center>
+					
+					A remplir avec des infos sur le m�decin
+						
+				
+					</center>			
+					
+			
+		</div>
+	</div>
+</div>          
 
 <!--==============================footer=================================-->
 
-<?php include("footer.php"); ?>
+<?php include("footerDeconnexion.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

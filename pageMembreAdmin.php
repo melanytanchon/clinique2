@@ -30,7 +30,8 @@
 
   <div class="container_12">
     <div class="grid_8">
-      <h3>Bonjour Mr DUROUX</h3>
+	<?php session_start() ?>
+      <h3>Bonjour <?php echo $_SESSION['name'] ?></h3>
       <img src="images/page5_img1.jpg" alt="" class="img_inner fleft">
       <div class="extra_wrapper">
         <p class="col1">Hoivamus at magna non nunc tristiquencus. Fliquam nibh ante, egestas id dictum modo luctus libero. Praesent faucibus malesuad faucibu. </p>

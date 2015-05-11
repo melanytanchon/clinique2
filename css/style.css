@@ -348,8 +348,13 @@ top: 2px;
 }
 
 .block1 .price * {
+top: 25%;
 	position: relative;
 	z-index: 10;
+	color : #002F2F;
+	 font: bold 30px calibri;
+	 text-align: center;
+	
 }
 
 .block1 .price strong {
@@ -359,14 +364,15 @@ top: 2px;
 	left: 0;
 	top: 0;
 	width: 100%;
-	border-radius: 500px;	
+	border-radius: 700px;	
 	opacity: 0;
-	right: 0;
+	right:0;
 	height: 100%;
 	background: url(../images/overlay.png) 0 0 repeat;
 	transition: 0.5s ease;
 	-o-transition: 0.5s ease;
 	-webkit-transition: 0.5s ease;
+	border : 3px solid #002F2F;
 }
 
 .block1:hover .price strong {

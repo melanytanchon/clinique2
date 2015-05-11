@@ -32,13 +32,13 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Inscription</h3>
+      <h3 class="head2">Annulation </h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
-				<p><BR>
-				<b>Annuler l'inscription en cours :</b><BR>
+				<p><BR><center>
+				<b>Entrez les données saisie lors de l'inscription  :</b></center><BR>
 				<form name="myForm"  method="post" action="annulerInscriptionAction.php">
 				<fieldset>
 					<legend> Vos données: </legend><BR>

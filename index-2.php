@@ -49,22 +49,24 @@
 				</div>
 				<div class="div-tabs" >
 					<div  id="tab-1" class="tab-content gallery1" >
-						<div class="grid_3" >
-						<img src="images/page3_patient.png" alt=""><span></span>
-							<div class="col2" ><span class="col3"><a href="index-2-patient.php">Accès patients</a></span></div>
-							</div>
+						
+						<center>
+						<br><img src="images/page3_patient.png" alt=""><span></span></center>
+						<br>
+						<a href="index-2-patient.php">Accès patients</a>
+							
 						</div>     
 					<div  id="tab-2" class="tab-content gallery2">
-						<div class="grid_3">
-							<img src="images/page3_medecin.png" alt=""><span></span>
-                    <div class="col2"><span class="col3"><a href="index-2-medecin.php">Accès médecins</a></span></div>
+						<center>
+							<br><img src="images/page3_medecin.png" alt=""><span></span></center>
+                   <br><a href="index-2-medecin.php">Accès médecins</a>
                   </div>
-			</div> 
+			
 					<div  id="tab-3" class="tab-content gallery3">
-						<div class="grid_3">
-							<img src="images/page3_admin.png" alt=""><span></span>
-                    <div class="col2"><span class="col3"><a href="index-connexion-medecin.php">Accès administrateur</a></span></div>
-                  </div>
+						
+							<center><br><img src="images/page3_admin.png" alt=""><span></span></center>
+                    <br><a href="index-connexion-medecin.php">Accès administrateur</a>
+                  
 			</div> 			
 			 </div>	 </div> 
 			 </div> 
