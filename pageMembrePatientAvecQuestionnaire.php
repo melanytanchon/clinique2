@@ -46,7 +46,12 @@
 		<br><br><p><span class="cont_phone"><b>Vos activités.</b></span>
 		 <p>
 		 <?php if ($_SESSION['quest']==1){$rep = "Oui";} else {$rep="Non";}?>
-		 <?php echo "Questionnaire en ligne: <span class=\"cont_phone\">".$rep."</span>" ?></span><br>
+		 <?php echo "Questionnaire en ligne: <span class=\"cont_phone\">".$rep."</span><br>
+		 <a href=\"modifierMDPPatient.php\"><b>Changer mon mot de passe</b></a><br>";
+
+
+		 ?></span><br>
+		 
 				 </p>	</p>					 
         
         <br><br><p><span class="cont_phone"><b>Information:</b></span><br>

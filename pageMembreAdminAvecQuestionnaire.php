@@ -47,6 +47,7 @@
 		  <span class="cont_phone"><?php echo "Questionnaire en ligne: ".$rep ?></span><br>
 										 
         </div>
+		<a href="modifierMDPMedecin.php"><b>Changer mon mot de passe</b></a><br>
         <p>ICI marquer du blabla <span class="cont_phone">BLA BLA BLA</span> . blabla. </p>
         ... <span class="cont_phone">...</span> <br>
       </center>

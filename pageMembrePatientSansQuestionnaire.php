@@ -47,8 +47,9 @@
 		 <p>
 		 <?php if ($_SESSION['quest']==1){$rep = "Oui";} else {$rep="Non";}?>
 		 <?php echo "Questionnaire en ligne: <span class=\"cont_phone\">".$rep."</span>" ?></span><br>
-				 </p>	</p>					 
-        
+				 			 
+        <a href="modifierMDPPatient.php"><b>Changer mon mot de passe</b></a><br>
+		</p>	</p>		
         <br><br><p><span class="cont_phone"><b>Information:</b></span><br>
 		Votre médecin ne vous propose pas de remplir un questionnaire en ligne.<br>
         Nous vous conseillons de nous contacter directement afin de vous proposer <br>un rendez-vous avec lui.<br>

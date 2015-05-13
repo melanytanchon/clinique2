@@ -45,6 +45,7 @@
 		 <p class="col1"><b>Vos activités.</b> </p><br>
 		 <?php if ($_SESSION['quest']==1){$rep = "Oui";} else {$rep="Non";}?>
 		  <span class="cont_phone"><?php echo "Questionnaire en ligne: ".$rep ?></span><br>
+		  <a href="modifierMDPMedecin.php"><b>Changer mon mot de passe</b></a><br>
 										 
         </div>
         <p>ICI marquer du blabla <span class="cont_phone">BLA BLA BLA</span> . blabla. </p>
