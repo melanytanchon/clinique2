@@ -40,6 +40,7 @@
 		<div id="container">
 			<div id="content">
 				<?php
+				
 					$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
 					if(!$connexion){
 						die('could not connect:'.mysql-error());
@@ -81,6 +82,7 @@
 									$_SESSION['quest'] = $quest[0];
 									$_SESSION['surname'] = $pn[0];
 									$_SESSION['idMedecin'] = $med[0];
+									
 									// Redirection en fonction de s'il a ou non un questionnaire	
 									if($quest[0] == 1){header ('location: pageMembrePatientAvecQuestionnaire.php');}
 									else{header ('location: pageMembrePatientSansQuestionnaire.php');}	

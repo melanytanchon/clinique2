@@ -42,6 +42,7 @@
 			<center><img src="images/info.png" alt=""><span></span></a></center>
 				<?php 
 						session_start();
+						$_SESSION['saisie']=1;
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 						mysqli_select_db($connexion, 'clinique');
 						
@@ -56,15 +57,21 @@
 						$ante = $_POST['antecedents'];
 						$id = $_SESSION["id"];
 						//ajouter l'idSpe à la table medecin
+						$idM=$_SESSION['idMedecin'];
+						mysqli_query($connexion, "INSERT INTO questionnaire VALUES('', $id, 0, $age,'$fumeur','$sexe','$ante',$idM,1)");
+						mysqli_query($connexion, "UPDATE questionnaire SET age = $age WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE questionnaire SET sexe = '$sexe' WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE questionnaire SET fumeur = '$fumeur' WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE questionnaire SET ante = '$ante' WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE questionnaire SET saisie = 1 WHERE $id=idPatient");
 						
-						mysqli_query($connexion, "INSERT INTO questionnaire VALUES(0, $id, 0, $age,'$fumeur','$sexe','$ante')");						
 						
 						//recapitulatif des informations données
 						echo '<br><br><br> <div class="tabs tb gallery">
         <div class="div-nav  ">
             <div class="grid_12">
 				<div id="container">
-					<div id="content"><ul class="nav"><li><b>Saisir de vos données</b></li></ul><br>
+					<div id="content"><ul class="nav"><li><b>Saisie de vos données</b></li></ul><br>
 					</div></div></div></div>
 					<center>
 						Votre âge : '.$age.'<br>

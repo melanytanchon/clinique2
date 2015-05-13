@@ -34,6 +34,10 @@ Pour l'oral
 	- si son medecin met a disposition un formulaire, le patient aura sur sa page l'onglet pour le remplir, sinon l'onglet n'apparait pas
 	- il peut suivre son compte rendu
 	- On voit ses propres info
+	- Si le patient dispose d'un questionnaire à disposition, il ne peut pas avoir acces au compte rendu s'il ne l'a pas rempli avant
+	(car il n'a acces au compte rendu qu'après la consultation, qui n'a lieu qu'après le questionnaire rempli)
+	- Si le questionnaire est rempli mais le compte rendu pas encore, dans ce cas, message pour dire que le médecin n'a pas encore fait 
+	son boulot, sinon affichage du compte rendu
 
 - Pour la page medecin
 	- possibilité de proposer aux patients qui le choisissent, un questionnaire en ligne

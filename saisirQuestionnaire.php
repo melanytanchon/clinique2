@@ -46,8 +46,8 @@
 						<BR><label for="fumeur">Sexe</label>	<BR>					
 						<select name="sexe" id="sexe" onchange="request(this)">
 						<option value= disabled selected>Sexe</option>
-						<option value="Oui">F</option>
-						<option value="Non">M</option>
+						<option value="F">F</option>
+						<option value="M">M</option>
 						</select>
 						
 						<BR><label for="fumeur">Fumeur</label>	<BR>	

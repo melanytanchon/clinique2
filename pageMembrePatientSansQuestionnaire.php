@@ -32,29 +32,35 @@
     <div class="grid_8">
 	<?php session_start() ?>
 	<h3>Bonjour <?php echo $_SESSION['surname']." ".$_SESSION['name'] ?></h3>
-      <img src="images/patient.png" alt="" class="img_inner fleft">
-      <div class="extra_wrapper">
-	  <center>
-        <p class="col1"><b>Données personnelles. </b></p>
+     
+      <div class="extra_wrapper"> <img src="images/patient.png" alt="" class="img_inner fleft">
+	  
+        <p><b>Données personnelles. </b><br>
          <span class="cont_phone"><?php echo $_SESSION['surname']." ".$_SESSION['name'] ?> </span><br>
-		 <span class="cont_phone"><?php echo "Id: ".$_SESSION['id'] ?></span><br><br>
-		 <p class="col1"><b>Votre compte. </b></p>
-		 <span class="cont_phone"><?php echo "Mail: ".$_SESSION['mail'] ?></span><br>
-		 <span class="cont_phone"><?php echo "Mot de passe: ".$_SESSION['pwd'] ?></span><br><br>
-		
-		 <p class="col1"><b>Vos activités.</b> </p><br>
+		 <?php echo "Id:<span class=\"cont_phone\">".$_SESSION['id']."</span>" ?></span><br><br></p>
+		 <p><b>Votre compte. </b><br>
+		 <?php echo "Mail: <span class=\"cont_phone\">".$_SESSION['mail']."</span>" ?></span><br>
+		 <?php echo "Mot de passe: <span class=\"cont_phone\">".$_SESSION['pwd']."</span>" ?></span><br><br></p>
+		</div>
+		<center>
+		<br><br><p><span class="cont_phone"><b>Vos activités.</b></span>
+		 <p>
 		 <?php if ($_SESSION['quest']==1){$rep = "Oui";} else {$rep="Non";}?>
-		  <span class="cont_phone"><?php echo "Questionnaire en ligne: ".$rep ?></span><br>
-										 
-        </div>
-        <p>ICI marquer du blabla <span class="cont_phone">BLA BLA BLA</span> . blabla. </p>
-        ... <span class="cont_phone">...</span> <br>
+		 <?php echo "Questionnaire en ligne: <span class=\"cont_phone\">".$rep."</span>" ?></span><br>
+				 </p>	</p>					 
+        
+        <br><br><p><span class="cont_phone"><b>Information:</b></span><br>
+		Votre médecin ne vous propose pas de remplir un questionnaire en ligne.<br>
+        Nous vous conseillons de nous contacter directement afin de vous proposer <br>un rendez-vous avec lui.<br>
+		<br>
+		Rendez-vous <span class="cont_phone"><a href="index-5.php">sur cette page</a></span> où vous trouverez nos coordonnées. <br>
+		À Bientôt !</p>
       </center>
 	  
 	 
 	  
 	  
-	  <a href="consulterCompteRendu.php" class="reserv"><span>GO</span>-  Consulter mon compte rendu</a>
+	  <a href="pageMembrePatientSansQuestionnaire.php" class="reserv"><span>GO</span>-  Aucun compte rendu disponible</a>
 	 
     </div>
 	
@@ -88,22 +94,9 @@
         </div>
 		
       </div>
-	  	  	   <div class="hours">
-        <div class="title">Gestion</div>
-        <div>
-        <a href="./gestionNouveauxInscrits.php"><b>Nouveaux inscrits</b></a><br>
-        
-        p2<br>
-        ...<br>
-        ...<br>
-        ...<br>
-        ...<br>
-		...<br>
-        ...<br>
-        ...<br>
-        </div>
-		
-      </div>
+    <div class="grid_4">
+      
+        <div class="title"></div></div>
       <h3 class="head3">Prochains Rendez-vous</h3>
       <div class="news">
         <time datetime="2013-01-01">Sept<span>04</span></time>

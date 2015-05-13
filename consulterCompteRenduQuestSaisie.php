@@ -34,7 +34,7 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2"></h3>
+      <h3 class="head2">Enregistrement validé!</h3>
     </div>  
 
 		<div id="container">
@@ -42,20 +42,47 @@
 			<center><img src="images/info.png" alt=""><span></span></a></center>
 									<?php
 					session_start();
-					$id=$_SESSION['id'];
-					$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
+					$id= $_SESSION['id'];
+					$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 					mysqli_select_db($connexion, 'clinique');
 					
-					$res = mysqli_query($connexion, "SELECT saisie FROM questionnaire WHERE idPatient=$id"); 
-					$tab = mysqli_fetch_array($res, MYSQLI_BOTH);
+					$resCR = mysqli_query($connexion, "SELECT * FROM medecin, consultation WHERE consultation.idPatient=$id AND consultation.idMedecin=medecin.idMedecin"); 
+					$row = mysqli_fetch_array($resCR);
 					
-					if ($tab[0]==1){
-					header ('location: consulterCompteRenduQuestSaisie.php');
-					
-					}
-					else {
-					header ('location: consulterCompteRenduQuestNonSaisie.php');
+					if ($resCR ){	
 						
+					
+					echo '<br><br><br> <div class="tabs tb gallery">
+        <div class="div-nav  ">
+            <div class="grid_12">
+				<div id="container">
+					<div id="content"><ul class="nav"><li><b>À propos de votre médecin</b></li></ul><br>
+					</div></div></div></div>
+					<center>
+						Nom : '.$row["nom"].'<br>
+						Prenom : '.$row["prenom"].'<br>
+						Mail: '.$row["mail"].'<br></center>
+						<div id="content"><ul class="nav"><li><b><br><br>Votre compte rendu</b></li></ul><br>
+					
+					<center>
+						Date : '.$row["date"].'<br>
+						Compte rendu : '.$row["cr"].'<br>
+						</center></div>';}
+					else {
+					echo '<br><br><br> <div class="tabs tb gallery">
+        <div class="div-nav  ">
+            <div class="grid_12">
+				<div id="container">
+					<div id="content"><ul class="nav"><li><b>Pas de compte rendu disponible</b></li></ul>
+					<center>Votre compte rendu sera prochainement en ligne.</center>
+					</div>
+					
+					</div></div></div></div>';
+					
+	
+					echo '<br><center><br><br><a href="pageMembrePatientAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>	';		
+			
+					
 					}
 					
 					?>

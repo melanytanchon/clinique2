@@ -14,6 +14,7 @@
      <script src="js/jquery.tabs.min.js"></script>
      <script src="js/touchTouch.jquery.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
+	 
      <script>
         $(document).ready(function(){
 
@@ -26,46 +27,30 @@
      </head>
      <body  class="">
 
-<?php include("headerConnexion.php") ?>
+<?php include("headerDeconnexion.php") ?>
 
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">À Bientôt ! </h3>
+      <h3 class="head2">Vous devez d'abord saisir votre formulaire!</h3>
     </div>  
 
-				<div id="container">
+		<div id="container">
 			<div id="content">
-				<p><BR>
-				<?php 
-				if(!empty($_POST['mail'])&&!empty($_POST['pwd']))
-					{
-						// D'abord, je me connecte à la base de données.
-						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
-						mysqli_select_db($connexion, 'clinique');
-
-						mysqli_query($connexion, "DELETE FROM medecin WHERE mail =\"".$_POST['mail']."\" or mail =\"".$_POST['pwd']."\"");				
-						mysqli_query($connexion, "DELETE FROM patient WHERE mail =\"".$_POST['mail']."\" or mail =\"".$_POST['pwd']."\"");	
-						
-						//recapitulatif 
-						include("aBientot.php");
-					}
-	
-				?>
-				</p>
-				<center><br><br><a href="index.php"><b>Retour à ma page</b></a><br></center>
-			</div> 
-		</div>
+			<center><img src="images/erreurs.jpg" alt=""><span></span></a></center>
+					
+<center><br><br><a href="pageMembrePatientAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>  	
+			</div>
+		</div>      
      </div>
  </div>
-
-          
+     
 
 <!--==============================footer=================================-->
 
-<?php include("footer.php"); ?>
+<?php include("footerDeconnexion.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

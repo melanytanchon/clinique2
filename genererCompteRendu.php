@@ -40,7 +40,7 @@
 			<fieldset>
 						<legend>Suivi du patient</legend><BR>
 						<label for="date">Date:</label><BR>
-						<Input type = "date" name="date" placeholder="à remplir"><span id="errorDate" class="error"></span>
+						<Input type = "text" name="date" placeholder="à remplir"><span id="errorDate" class="error"></span>
 						<br>
 
 						<?php

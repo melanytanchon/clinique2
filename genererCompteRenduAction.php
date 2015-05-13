@@ -41,21 +41,41 @@
 			<div id="content">
 			<center><img src="images/info.png" alt=""><span></span></a></center>
 				<?php 
+				
 						session_start();
+						
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 						mysqli_select_db($connexion, 'clinique');
+						$id = $_SESSION['id'];
+						
+						$res = mysqli_query($connexion, "SELECT saisie FROM questionnaire WHERE idPatient=medecin.idPatient AND questionnaire.saisie=1 AND medecin.idMedecin=$id"); 
+						
+						$nomP = mysqli_fetch_array($res, MYSQLI_BOTH);
+						
+						if ($nomP[0]==1){
+						
+						
 						
 						$pat = $_POST['patient'];	
-					$res = mysqli_query($connexion, "SELECT nom, prenom FROM patient WHERE idPatient=$pat"); 
+						$res = mysqli_query($connexion, "SELECT nom, prenom FROM patient WHERE idPatient=$pat"); 
 						$nomP = mysqli_fetch_array($res);
 						$res = mysqli_query($connexion, "SELECT idSpe FROM patient WHERE idPatient=$pat"); 
 						$idSpe = mysqli_fetch_array($res);
-						echo $idSpe;
-						$date=$_POST['date'];	
-						$cr=$_POST['cr'];						
-				
 						
-						mysqli_query($connexion, 'INSERT INTO consultation VALUES("", $_SESSION["id"],  $pat,$idSpe[0],$date,$cr)');						
+						$date=$_POST['date'];					
+						$date=null;
+						$d = "/\d\d\/\d\d\/\d\d\d\d/";
+						if (preg_match($d, $_POST['date'], $matches)){$date = $_POST['date'];}
+						$cr=$_POST['cr'];						
+						
+						
+
+						mysqli_query($connexion, "INSERT INTO consultation VALUES(NULL, $id,  $pat,$idSpe[0],'$date','$cr')");
+						mysqli_query($connexion, "UPDATE consultation SET cr=$cr WHERE idPatient=$id");
+						mysqli_query($connexion, "UPDATE consultation SET date=$date WHERE idPatient=$id");
+						
+						
+						
 						
 						
 						
@@ -70,9 +90,19 @@
 						Patient : '.$nomP[0].' '.$nomP[1].'<br>
 						Date de consultation : '.$date.'<br>
 						
-						Votre compte rendu: '.$cr.'
+						Votre compte rendu: '.$cr.'</center>'; }
 						
-					';
+						else {
+						echo '<br><br><br> <div class="tabs tb gallery">
+        <div class="div-nav  ">
+            <div class="grid_12">
+				<div id="container">
+					<div id="content"><ul class="nav"><li><b>Votre consultation n\'a pas encore eu lieu</b></li></ul><br>
+					</div></div></div></div>';
+				
+						
+						}
+						
 						
 					
 					
