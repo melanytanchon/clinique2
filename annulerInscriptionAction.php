@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Annulation inscription</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -49,13 +49,11 @@
 						mysqli_query($connexion, "DELETE FROM medecin WHERE mail =\"".$_POST['mail']."\" or mail =\"".$_POST['pwd']."\"");				
 						mysqli_query($connexion, "DELETE FROM patient WHERE mail =\"".$_POST['mail']."\" or mail =\"".$_POST['pwd']."\"");	
 						
-						//recapitulatif 
-						include("aBientot.php");
 					}
 	
 				?>
 				</p>
-				<center><br><br><a href="index.php"><b>Retour à ma page</b></a><br></center>
+				<center><br><br><a href="index.php"><b>Accueil</b></a><br></center>
 			</div> 
 		</div>
      </div>

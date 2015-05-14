@@ -5,7 +5,7 @@
      <title>Bienvenue</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>

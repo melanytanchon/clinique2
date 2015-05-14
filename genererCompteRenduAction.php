@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Compte rendu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -34,27 +34,30 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Enregistrement validé!</h3>
+      <h3 class="head2">Compte rendu!</h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
-			<center><img src="images/info.png" alt=""><span></span></a></center>
+			
 				<?php 
 				
 						session_start();
 						
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 						mysqli_select_db($connexion, 'clinique');
+						$mail = $_SESSION['mail'];
+						$questionnaire = mysqli_query($connexion, "SELECT idQuestionnaire FROM medecin WHERE mail ='$mail'");
+						$quest = mysqli_fetch_array($questionnaire, MYSQLI_NUM);
+						
 						$id = $_SESSION['id'];
 						
-						$res = mysqli_query($connexion, "SELECT saisie FROM questionnaire WHERE idPatient=medecin.idPatient AND questionnaire.saisie=1 AND medecin.idMedecin=$id"); 
+						$res = mysqli_query($connexion, "SELECT saisie FROM questionnaire, patient,medecin WHERE patient.idMedecin=$id AND questionnaire.saisie=1"); 
+						 
+						if ($res){
+						echo '<center><img src="images/resultat.png" alt=""><span></span></a></center>';
 						
-						$nomP = mysqli_fetch_array($res, MYSQLI_BOTH);
-						
-						if ($nomP[0]==1){
-						
-						
+					
 						
 						$pat = $_POST['patient'];	
 						$res = mysqli_query($connexion, "SELECT nom, prenom FROM patient WHERE idPatient=$pat"); 
@@ -93,7 +96,8 @@
 						Votre compte rendu: '.$cr.'</center>'; }
 						
 						else {
-						echo '<br><br><br> <div class="tabs tb gallery">
+						echo '<h3 class="head2">Date invalide!</h3><br><br><div class="tabs tb gallery">
+						<center><img src="images/date.png" alt=""><span></span></a></center>
         <div class="div-nav  ">
             <div class="grid_12">
 				<div id="container">
@@ -104,12 +108,13 @@
 						}
 						
 						
+						
 					
 					
 				?>
 <?php
 		
-		if ($_SESSION['quest']==0){
+		if ($quest[0]==0){
 			if ($_SESSION['admin']==0) {
 			echo '<center><br><br><a href="pageMembreMedecinSansQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
 			}
@@ -117,7 +122,7 @@
 			echo '<center><br><br><a href="pageMembreAdminSansQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
 			}
 			}
-		if ($_SESSION['quest']==1){
+		if ($quest[0]==1){
 			if ($_SESSION['admin']==0 ){
 			echo '<center><br><br><a href="pageMembreMedecinAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
 			}

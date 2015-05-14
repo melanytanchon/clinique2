@@ -12,6 +12,7 @@
 		<meta name="Language" content="English" />
 		<title> Clinique </title>
      <link rel="icon" href="images/favicon.ico">
+	 <link rel="shortcut icon" href="images/favicon.png" />
      <link  href="images/favicon.ico" />
      <link type="text/css" rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>

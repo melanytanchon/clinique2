@@ -5,6 +5,7 @@
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
+	 <link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/form.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -13,7 +14,7 @@
      <script src="js/jquery.ui.totop.js"></script>
      <script src="js/TMForm.js"></script>
      <script src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
+        
      <script>
         $(document).ready(function(){
 

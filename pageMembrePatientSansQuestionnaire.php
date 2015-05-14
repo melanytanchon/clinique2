@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Reservation</title>
+		<title>Patient</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/favicon.ico">
-		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.1.1.js"></script>
@@ -45,9 +45,21 @@
 								<span class="cont_phone"><?php echo "Questionnaire en ligne: ".$rep."</span>" ?><br>
 							</fieldset><BR>
 							<fieldset><BR>
-								<a href="modifierMDPPatient.php"><b>Changer mon mot de passe</b></a><br>
+								<a href="modifierMDPPatient.php"><b>Modifier mon compte</b></a><br>
 							</fieldset>
 						</fieldset>
+						<fieldset>
+									<legend>Statistiques</legend><BR>
+							<?php
+							$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
+							mysqli_select_db($connexion, 'clinique');
+							$id = $_SESSION['id'];
+							$nbcr = mysqli_query($connexion, "SELECT COUNT(idConsultation) FROM consultation WHERE idPatient = $id"); 
+							$nbcrtab = mysqli_fetch_array($nbcr, MYSQLI_BOTH);
+							
+							?>
+							<span class="cont_phone"><?php echo "Nombre de compte(s)-rendu(s): ".$nbcrtab[0]."</span>" ?></span><br><BR>
+							</fieldset>
 					</center>
 					<justify>
 						<BR><fieldset>		
@@ -63,10 +75,10 @@
 						<a href="pageMembrePatientSansQuestionnaire.php" class="reserv"><span></span>Aucun compte rendu disponible</a>
 					</center>
 					</div>
-				</div>
+				</div><br><br><br><br><br>
 				<div class="grid_4">
 					<div class="hours">
-						<div class="title">Mon Médecin</div>
+						<div class="title">Médecin</div>
 						<div>
 							<?php
 								// Ici le carré en haut à droite sur la page des médecins : affiche le lien sur chacun de ses patients,
@@ -76,12 +88,15 @@
 								//on recupere tous booleens pour permettre l'acceptation des medecins
 								$resPat = mysqli_query($connexion, "SELECT * FROM medecin"); 
 								$tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH);
-								while($tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH)){
+								
+								while($tabPat){
 									if($tabPat['idMedecin']==$_SESSION['idMedecin']){
 										echo '<center><a href="infoMedecin.php">'.$tabPat['nom'].'</a><br></center>';
 									}
+									$tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH);
 								}
 							?>
+							<br><br><br><br>
 						</div>
 					</div>
 					<div class="grid_4">

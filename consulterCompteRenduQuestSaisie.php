@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Compte rendu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -34,13 +34,14 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Enregistrement validé!</h3>
+      <h3 class="head2">Compte Rendu!</h3>
+	  <center>_________________________________________________________________________</center>
     </div>  
 
 		<div id="container">
 			<div id="content">
-			<center><img src="images/info.png" alt=""><span></span></a></center>
-									<?php
+			
+					<?php
 					session_start();
 					$id= $_SESSION['id'];
 					$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
@@ -48,11 +49,22 @@
 					
 					$resCR = mysqli_query($connexion, "SELECT * FROM medecin, consultation WHERE consultation.idPatient=$id AND consultation.idMedecin=medecin.idMedecin"); 
 					$row = mysqli_fetch_array($resCR);
+					if ($row["nom"] == ''){
+					echo '<center><img src="images/enCours.png" alt=""><span></span></a></center><br><br><br> <div class="tabs tb gallery">
+        <div class="div-nav  ">
+            <div class="grid_12">
+				<div id="container">
+					<div id="content"><ul class="nav"><li><b>Pas de compte rendu disponible</b></li></ul>
+					<center>Votre compte rendu sera prochainement en ligne.<br>
+					_________________________________________________________________________<br></center>
+					</div>
 					
-					if ($resCR ){	
-						
+					</div></div></div></div>';
+					}
+					while($row){	
+						if ($row["nom"] != ''){
 					
-					echo '<br><br><br> <div class="tabs tb gallery">
+					echo '<center><img src="images/resultat.png" alt=""><span></span></a></center><br><br><br> <div class="tabs tb gallery">
         <div class="div-nav  ">
             <div class="grid_12">
 				<div id="container">
@@ -67,23 +79,27 @@
 					<center>
 						Date : '.$row["date"].'<br>
 						Compte rendu : '.$row["cr"].'<br>
-						</center></div>';}
+						_________________________________________________________________________<br></center></div>';}
 					else {
-					echo '<br><br><br> <div class="tabs tb gallery">
+					echo '<center><img src="images/enCours.png" alt=""><span></span></a></center><br><br><br> <div class="tabs tb gallery">
         <div class="div-nav  ">
             <div class="grid_12">
 				<div id="container">
 					<div id="content"><ul class="nav"><li><b>Pas de compte rendu disponible</b></li></ul>
-					<center>Votre compte rendu sera prochainement en ligne.</center>
+					<center>Votre compte rendu sera prochainement en ligne.
+					_________________________________________________________________________<br></center>
 					</div>
 					
 					</div></div></div></div>';
-					
-	
-					echo '<br><center><br><br><a href="pageMembrePatientAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>	';		
-			
+					}
+					$row = mysqli_fetch_array($resCR);
 					
 					}
+	
+					echo '<br><center><br><br><a href="pageMembrePatientAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center></div>	';		
+			
+					
+					
 					
 					?>
 			

@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Données personnelles</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -34,7 +34,7 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Nouveau Mot de Passe</h3>
+      <h3 class="head2">Votre compte</h3>
     </div>  
 
 		<div id="container">
@@ -49,20 +49,44 @@
 						
 						$id = $_SESSION['id'];
 						$mdp = $_POST['mdp'];
+						$mail = $_POST['mail'];
+						echo '<br><br><br> <div class="tabs tb gallery">
+						<div class="div-nav  ">
+							<div class="grid_12">
+								<div id="container">
+									<div id="content"><ul class="nav"><li><b>Nouveau mot de passe</b></li></ul><br>
+									</div>
+								</div>
+							</div>
+						</div>';
+						
 						if ($mdp != ''){
 						mysqli_query($connexion, "UPDATE medecin SET pwd = '$mdp' WHERE $id=idMedecin");
 						$_SESSION['pwd']=$mdp;
-						echo '<br><br><br> <div class="tabs tb gallery">
-        <div class="div-nav  ">
-            <div class="grid_12">
-				<div id="container">
-					<div id="content"><ul class="nav"><li><b>Nouveau mot de passe enregistré</b></li></ul><br>
-					</div></div></div></div>
-					<center>
+						echo '<center>
 						Votre mdp: '.$mdp.'<br>';
 						}
 						else {
-						echo "<br><br><b>Saisie vide, votre mot de passe n'a pas été modifié</b><br></center>";
+						echo "<center><br>Saisie vide, votre mot de passe n'a pas été modifié<br></center>";
+						}
+						echo '<br><br><br> <div class="tabs tb gallery">
+						<div class="div-nav  ">
+							<div class="grid_12">
+								<div id="container">
+									<div id="content"><ul class="nav"><li><b>Nouveau mail</b></li></ul><br>
+									</div>
+								</div>
+							</div>
+						</div>';
+						
+						if ($mail != ''){
+						mysqli_query($connexion, "UPDATE medecin SET mail = '$mail' WHERE $id=idMedecin");
+						$_SESSION['mail']=$mail;
+						echo '<center>
+						Votre mail: '.$mail.'<br>';
+						}
+						else {
+						echo "<center><br>Saisie vide, votre mail n'a pas été modifié<br></center>";
 						}
 						
 					if ($_SESSION['quest'] ==0){
@@ -93,7 +117,7 @@
  </div>
 
   </div>         
-
+ </div>
 <!--==============================footer=================================-->
 
 <?php include("footerDeconnexion.php"); ?>

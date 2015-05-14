@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Récapitulatif</title>
+     <title>Inscription</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -51,19 +51,29 @@
 						$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
 						
 						$nomMedecin = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['medecins']));
-
 						
 						//ajouter l'idSpe à la table patient
-						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
+						$idSpe = $_POST['specialites'];
+						
+						//Récupérer le nom de la spécialité
+						$res = mysqli_query($connexion, "SELECT nomSpe FROM specialite WHERE idSpe =$idSpe");
 						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
-						$idSpe = $tab[0];
+						$nomSpe = $tab[0];
+						
+						
+						
+						
+						
 						
 						//ajouter l'idMedecin à la table patient
-						$res = mysqli_query($connexion, "SELECT idMedecin FROM medecin WHERE nom =\"".$_POST['medecins']."\"");
+						$res = mysqli_query($connexion, "SELECT idMedecin FROM medecin WHERE nom ='$nomMedecin'");
 						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
 						$idMedecin = $tab[0];
-						
-						mysqli_query($connexion, "INSERT INTO patient VALUES('', '$nom', '$prenom', '$mail','$pwd','','','$idSpe','')");						
+						// Définir si oui ou non il y a accès a un questionnaire
+						$res = mysqli_query($connexion, "SELECT idQuestionnaire FROM medecin WHERE nom ='$nomMedecin'");
+						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+						$idQuest = $tab[0];
+						mysqli_query($connexion, "INSERT INTO patient VALUES('', '$nom', '$prenom', '$mail','$pwd','',$idMedecin,$idSpe,$idQuest)");						
 						
 						//recapitulatif des informations données
 						echo '<fieldset>';
@@ -77,10 +87,13 @@
 						echo '<fieldset>';
 						echo '<legend> Votre médecin et sa spécialité : </legend>';
 						echo "Le médecin choisi est : ".$nomMedecin."<br>";
-						echo "La spécialité choisie est : ".$_POST['specialites']."<br>";
+						echo "La spécialité choisie est : ".$nomSpe."<br>";
 						echo '</fieldset>';
 					}
 				?>
+				<center><p><b><br>Votre inscription est désormais en cours de validation.<br>
+				Veuillez vous reconnecter ultérieurement.
+				<br><br><br><a href="index.php">Accueil</a></b></p></center>
 			</div>
 		</div>      
      </div>

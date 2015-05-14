@@ -2,10 +2,10 @@
 <?php session_start(); ?>
 <html lang="en">
      <head>
-     <title>Gestion spécialités</title>
+     <title>Gestion des spécialités</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -34,7 +34,7 @@
 			</div>  
 				<div id="container">
 					<div id="content">
-					<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
+					<center><img src="images/ajouter.png" alt=""><span></span></a></center>
 						<form name="myForm"  method="post" action="gestionNouvellesSpeAction.php">
 							<BR>
 							<fieldset>

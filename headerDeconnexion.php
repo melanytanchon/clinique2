@@ -14,7 +14,7 @@
          <li class="bt-icon"><a href="deconnexion.php">Déconnexion</a></li>	
 <li class="bt-icon "></li>		 
 		 <li class="bt-icon "></li>
-		 <li class="bt-icon"><a href="index-1.php">À propos de nous</a></li>
+		 <li class="bt-icon"><a href="index-1.php">Notre projet</a></li>
          <li class="bt-icon"><a href="index-5.php">Contacts</a></li>
         </ul>
       </nav>

@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Reservation</title>
+     <title>Informations</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -32,7 +32,7 @@
   <div class="container_12">
       <div class="grid_12">
       <h3 class="head2">Résultats de questionnaire</h3>
-	  <center><img src="images/agree.png" alt="" align = center><span></span><br><br><br></center>
+	  <center><img src="images/resultat.png" alt="" align = center><span></span><br><br><br></center>
     </div> 
  
 					<div id="content">
@@ -43,30 +43,45 @@
 					mysqli_select_db($connexion, 'clinique');
 					$resQuest = mysqli_query($connexion, "SELECT * FROM patient, questionnaire WHERE patient.idMedecin=".$_SESSION['id']." AND questionnaire.idPatient=patient.idPatient"); 
 				
-					
+					$row = mysqli_fetch_array($resQuest, MYSQLI_BOTH);
 						
-						
-					while ($row = mysqli_fetch_array($resQuest)){
-					echo '<br><br><br> <div class="tabs tb gallery">
+					if ($row ) {
+					while ($row){
+					echo '<div class="tabs tb gallery">
         <div class="div-nav  ">
             <div class="grid_12">
 				<div id="container">
-					<div id="content"><ul class="nav"><li><b>À propos de votre patient</b></li></ul><br>
-					</div></div></div></div>
-					<center>
+					<div id="content"><ul class="nav"><li><b><center>
 						Nom : '.$row["nom"].'<br>
 						Prenom : '.$row["prenom"].'<br>
-						Mail: '.$row["mail"].'<br></center>
-						<div id="content"><ul class="nav"><li><b><br><br>Données médicales</b></li></ul><br>
-					</div></div></div></div>
+						Mail: '.$row["mail"].'<br></center></li></ul><br>
+					</div></div></div></div></div>
+					
+						
 					<center>
 						Sexe : '.$row["sexe"].'<br>
 						Âge : '.$row["age"].'<br>
 						Fumeur: '.$row["prenom"].'<br>
-						Antécédents: '.$row["antecedent"].'<br></center>';
+						Antécédents: '.$row["antecedent"].'<br><br>_____________________________________<br><br></center>';
 					
 					
 					
+					$row = mysqli_fetch_array($resQuest,  MYSQLI_BOTH);
+					}
+					
+					}
+					else {
+					echo '<br><br><br> 
+					<div class="tabs tb gallery">
+						<div class="div-nav  ">
+							<div class="grid_12">
+								<div id="container">
+									<div id="content"><ul class="nav"><li><b>Aucun de vos patients n\'a rempli son formulaire</b></li></ul><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>';
 					
 					}
 					
@@ -74,8 +89,26 @@
 				
 						
 				
-					</center>			
-					
+					</center>		
+ <h3 class="head2"><a href = "genererCompteRendu.php">Saisir un compte rendu</a></h3>				
+					<?php
+							if ($_SESSION['quest']==0){
+								if ($_SESSION['admin']==0) {
+								echo '<center><br><br><a href="pageMembreMedecinSansQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
+								}
+								else {
+								echo '<center><br><br><a href="pageMembreAdminSansQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
+								}
+							}
+							if ($_SESSION['quest']==1){
+								if ($_SESSION['admin']==0 ){
+								echo '<center><br><br><a href="pageMembreMedecinAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
+								}
+								else {
+								echo '<center><br><br><a href="pageMembreAdminAvecQuestionnaire.php"><b>Retour à ma page</b></a><br></center>';
+								}
+							}	
+						?>	
 			
 		</div>
 	</div>

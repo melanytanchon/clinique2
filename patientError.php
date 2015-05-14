@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Bienvenue</title>
+     <title>Error</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -48,7 +48,7 @@
                  </ul>
              </div>    
              </div>
-			<center><a href="index-connexion-patient.php">S'enregistrer</a><center>
+			<center><a href="index-inscription-patient.php">S'enregistrer</a><center>
 			<br><center><a href="index.php">Acceuil</a><center>
              
 			</div> 

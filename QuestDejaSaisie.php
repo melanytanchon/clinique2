@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Accès</title>
+     <title>Questionnaire</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
@@ -21,18 +21,21 @@
          $('.gallery a.gal').touchTouch();
          
        }) 
-     </script>    
+     </script>
+
+    
      </head>
      <body  class="">
 
-<?php include("headerConnexion.php") ?>
+<?php include("headerDeconnexion.php") ?>
 
 <!--==============================Content=================================-->
 
 <div class="content"><div class="ic"></div>
   <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Bienvenue !</h3>
+      <h3 class="head2">Vous avez déjà saisie votre questionnaire</h3>
+	  <center><img src="images/ok.png" alt="" align = center><span></span></center>
     </div>  
 
     <div class="tabs tb gallery">
@@ -41,34 +44,19 @@
 			     		<div id="container">
 			<div id="content">
                  <ul class="nav">
-                    <li class="selected"><a href="#tab-1" class="">Connexion</a>
-
-					</li>
-                    <li><a href="#tab-2">Première visite</a></li>
+                    <li class="selected"><a href="#tab-1" class=""></a></li>
                  </ul>
              </div>    
              </div>
-
-             <div class="div-tabs" >
-
-              <div  id="tab-1" class="tab-content gallery1" >
-			  			 					<center><img src="images/page3_img6.jpg" alt=""><span></span>
-								<br><a href="index-connexion-patient.php">Se loguer</a>
-					</center>
-
-              </div>     
-              <div  id="tab-2" class="tab-content gallery2">
-
-                 <center><img src="images/page3_img7.jpg" alt=""><span></span>
-                 <br><a href="index-inscription-patient.php">S'inscrire</a>
-				 </center>
-                  </div>
+		
+			<br><center><b><a href="pageMembrePatientAvecQuestionnaire.php">Retour à ma page</a></b></center>
+             
 			</div> 
-			 </div>	
+			 </div>	  
 			 </div> 
 			 </div>	  
 			 </div>	
- </div>			 
+			 
                   
                
           
@@ -77,7 +65,7 @@
 
 <!--==============================footer=================================-->
 
-<?php include("footer.php"); ?>
+<?php include("footerDeconnexion.php"); ?>
        <script>
       $(document).ready(function(){ 
          $(".bt-menu-trigger").toggle( 

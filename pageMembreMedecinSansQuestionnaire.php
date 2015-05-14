@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Reservation</title>
+		<title>Médecin</title>
 		<meta charset="utf-8">
 		<link rel="icon" href="images/favicon.ico">
 		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="shortcut icon" href="images/favicon.png" />
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.1.1.js"></script>
@@ -48,20 +49,41 @@
 								?></span><br>
 							</fieldset><BR>
 							<fieldset><BR>
-								<a href="modifierMDPMedecin.php"><b>Changer mon mot de passe</b></a>;
+								<a href="modifierMDPMedecin.php"><b>Modifier mon compte</b></a>
 							</fieldset>
-						</fieldset>
+						</fieldset></center></div>
+							<fieldset>
+									<legend>Statistiques</legend><BR>
+							<?php
+							$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
+							mysqli_select_db($connexion, 'clinique');
+							$id = $_SESSION['id'];
+							$nbcr = mysqli_query($connexion, "SELECT COUNT(idPatient) FROM patient WHERE idMedecin = $id"); 
+							$nbcrtab = mysqli_fetch_array($nbcr, MYSQLI_BOTH);
+							$nbc = mysqli_query($connexion, "SELECT COUNT(idConsultation) FROM consultation WHERE idMedecin = $id"); 
+							$nbconsult = mysqli_fetch_array($nbc, MYSQLI_BOTH);
+							if (! $nbc){$nbconsult=0;}
+							if (! $nbcr){$nbcrtab=0;}
+							?>
+							<span class="cont_phone"><?php echo "Nombre de patient(s): ".$nbcrtab[0]."</span>" ?></span><br><BR>
+							<span class="cont_phone"><?php echo "Nombre de consultation(s): ".$nbconsult[0]."</span>" ?></span><br><BR>
+							
+							</fieldset></fieldset><center>
 								<!--<p>ICI marquer du blabla <span class="cont_phone">BLA BLA BLA</span> . blabla. </p>
 								... <span class="cont_phone">...</span> <br>-->
 								<a href="./genererCompteRendu.php" class="reserv"><span></span>Saisir un compte rendu</a>
 								<a href="./ajouterQuestionnaire.php" class="reserv"><span></span>Ajouter un questionnaire</a>
 					</center>
-				</div>
-			</div>
+				
+			</div><br><br><br><br><br>
 			<div class="grid_4">
 				<div class="hours">
-				<div class="title">Mes Patients</div>
+				
+							
+				<div class="title">Patients</div>
 					<div>
+					
+					
 						<?php
 						// Ici le carré en haut à droite sur la page des médecins : affiche le lien sur chacun de ses patients,
 						//  pour avoir accès à son questionnaire rempli
@@ -72,21 +94,26 @@
 						$resPat = mysqli_query($connexion, "SELECT * FROM patient"); 
 						$tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH);
 						$bool=null;
-						while($tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH)){
+						while($tabPat){
 							if($tabPat['idMedecin']==$_SESSION['id']){
 								echo '<center>'.$tabPat['nom'].'<br></center>';
 								$bool=1;
 							}
+							$tabPat = mysqli_fetch_array($resPat, MYSQLI_BOTH);
 						}
 						if($bool){
-							echo '<center><a href="infoPatient.php"><b>+ d\'infos</b></a></center>';
+							echo '<a href="infoPatient.php"><b>+ d\'infos</b></a></center>';
 						}
-						else {
-							echo "Pas de patient";
-						}
+						
 						?>
+						<br><br><br><br><br><br><br><br><br>
 					</div>
 				</div>
+				
+			
+					
+				<br>
+				<br>
 				<h3 class="head3">Prochains Rendez-vous</h3>
 				<div class="news">
 					<time datetime="2013-01-01">Sept<span>04</span></time>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Reservation</title>
+     <title>Gestion Questionnaire</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -33,9 +33,10 @@
       <div class="grid_12">
       <h3 class="head2">À propos de vous</h3>	  
     </div> 
+	<script type="text/javascript" src="verfiFormulaireQuestionnaire.js"></script>
 		<div id="content">
 			<center><img src="images/info.png" alt="" align = center><span></span><br><br><br></center>
-			<form name="myForm"  method="post" action="saisirQuestionnaireAction.php">
+			<form name="myForm"  method="post" action="saisirQuestionnaireAction.php" onsubmit="return check()">
 			<BR>
 			<fieldset>
 						<legend> À propos de vous : </legend><BR>
@@ -43,15 +44,15 @@
 						<Input type = "int" name="age" placeholder="à remplir"><span id="errorAge" class="error"></span>
 						
 					
-						<BR><label for="fumeur">Sexe</label>	<BR>					
-						<select name="sexe" id="sexe" onchange="request(this)">
+						<BR><label for="fumeur">Sexe</label><BR>					
+						<select name="sexe" id="sexe" onchange="request(this)"><span id="errorSexe" class="error"></span>	
 						<option value= disabled selected>Sexe</option>
 						<option value="F">F</option>
 						<option value="M">M</option>
 						</select>
 						
 						<BR><label for="fumeur">Fumeur</label>	<BR>	
-						<select name="fumeur" id="fumeur" onchange="request(this)">
+						<select name="fumeur" id="fumeur" onchange="request(this)"><span id="errorFumeur" class="error"></span>	
 						<option value= disabled selected>Fumez-vous?</option>
 						<option value="Oui">Oui</option>
 						<option value="Non">Non</option>
@@ -60,7 +61,7 @@
 						
 						
 						<BR><label for = "antecedents">Vos antécédents</label>	<BR>	
-						<BR><textarea name="antecedents" cols=30 Rows=5 value=""></textarea><BR>
+						<BR><textarea name="antecedents" id="ant" cols=30 Rows=5 value=""></textarea><BR>
 		
 
 					

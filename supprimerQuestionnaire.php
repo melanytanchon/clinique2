@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Reservation</title>
+     <title>Gestion Questionnaire</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -42,14 +42,12 @@
 						session_start();
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");
 						mysqli_select_db($connexion, 'clinique');
+						$id = $_SESSION['id'];
 						//on recupere tous booleens pour permettre l'acceptation des medecins
-						$resMed = mysqli_query($connexion, "SELECT * FROM medecin"); 
+						$resMed = mysqli_query($connexion, "SELECT * FROM medecin where idMedecin = $id"); 
 						$tabMed = mysqli_fetch_array($resMed, MYSQLI_BOTH);
 						
-						while($tabMed = mysqli_fetch_array($resMed, MYSQLI_BOTH)){
-							// Distinction des deux cas pour le questionnaire, vu que les pages admin vs. medecin n'est pas même
-							// Ici cas de l'administrateur
-							if($tabMed['idMedecin']==$_SESSION['id']){
+					
 							if ( $tabMed['administrateur']==1){
 								if($tabMed['idQuestionnaire']==1){			
 									echo '<a href="supprimerQuestionnaire.php?action=confirmer&idMedecin='.$tabMed['idMedecin'].'"><br>Confirmer</a>';
@@ -89,8 +87,8 @@
 								
 								echo '<a href="pageMembreMedecinAvecQuestionnaire.php"><b>Retour à ma page</b></a>';
 							}
-						}
-						}
+						
+						
 					
 					
 				

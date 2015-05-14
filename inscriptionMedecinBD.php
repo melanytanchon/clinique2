@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Récapitulatif</title>
+     <title>Inscription</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/touchTouch.css">
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
@@ -56,7 +56,8 @@
 						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
 						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
 						$idSpe = $tab[0];
-						mysqli_query($connexion, "INSERT INTO medecin VALUES('', '$nom', '$prenom', '$mail','$pwd','','$idSpe','')");						
+						
+						mysqli_query($connexion, "INSERT INTO medecin VALUES('', '$nom', '$prenom', '$mail','$pwd','',$idSpe,'','')");						
 						
 						//recapitulatif des informations données
 						echo '<fieldset>';
@@ -71,11 +72,15 @@
 						echo "Vous exercez en : ".$_POST['specialites']."<br>";
 						echo '</fieldset>';
 					}
+					
 				?>
+				<center><p><b><br>Votre inscription est désormais en cours de validation.<br>
+				Veuillez vous reconnecter ultérieurement.
+				<br><br><br><a href="index.php">Accueil</a></b></p></center>				
 			</div>
 		</div>      
      </div>
-          
+</div>          
 
 <!--==============================footer=================================-->
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Reservation</title>
+     <title>Compte rendu</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
      <link rel="stylesheet" href="css/style.css">
      <script src="js/jquery.js"></script>
      <script src="js/jquery-migrate-1.1.1.js"></script>
@@ -33,28 +33,31 @@
       <h3 class="head2">Compte rendu</h3>	  
     </div> 
 		<div id="content">
+		<script type="text/javascript" src="verfiFormulaireCR.js"></script>
 			<center><img src="images/info.png" alt="" align = center><span></span><br><br><br></center>
-			<form name="myForm"  method="post" action="genererCompteRenduAction.php">
+			<form name="myForm"  method="post" action="genererCompteRenduAction.php" onsubmit="return check()">
 			<BR>
 			<fieldset>
 						<legend>Suivi du patient</legend><BR>
 						<label for="date">Date:</label><BR>
-						<Input type = "text" name="date" placeholder="à remplir"><span id="errorDate" class="error"></span>
+						<Input type = "text" name="date"  placeholder="à remplir"><span id="errorDate" class="error"></span>
 						<br>
 
 						<?php
 						session_start();
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB");						
 						mysqli_select_db($connexion, 'clinique');
-						$resPat = mysqli_query($connexion, "SELECT * FROM patient WHERE idMedecin=".$_SESSION['id']); 
+						$id = $_SESSION['id'];
+						$resPat = mysqli_query($connexion, "SELECT * FROM patient WHERE idMedecin=$id" ); 
 				
 							
-				echo "<label for=\"patient\">Patient :<BR></label>";
+						echo "<label for=\"patient\">Patient :<BR></label>";
 						echo "<select name=\"patient\" id=\"patient\" onchange=\"request(this)\">";
 						echo "<option value=\"\" disabled selected></option>";
-						while ($row = mysqli_fetch_array($resPat)){
+						while ($row = mysqli_fetch_array($resPat))
+							{
 							echo "<option value=\"".$row['idPatient']."\">".$row['nom']."</option>";
-						}
+							}
 						echo "</select><br>";
 						
 						

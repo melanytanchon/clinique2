@@ -5,7 +5,7 @@
 	<title>Nouveaux inscrits</title>
 	<meta charset="utf-8">
 	<link rel="icon" href="images/favicon.ico">
-	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="shortcut icon" href="images/favicon.ico" /><link rel="shortcut icon" href="images/favicon.png" />
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-migrate-1.1.1.js"></script>
@@ -69,9 +69,10 @@
 						
 						//on fait la meme chose pour les patients
 						$resPatient = mysqli_query($connexion, "SELECT * FROM patient"); 
-						$tabPatient = mysqli_fetch_array($resPatient, MYSQLI_BOTH);
-						while($tabPatient = mysqli_fetch_array($resPatient, MYSQLI_BOTH)){
-							if($tabPatient['accepte']==0){
+						$tabPatient = mysqli_fetch_array($resPatient,MYSQLI_BOTH);
+						while($tabPatient ){
+							if($tabPatient['accepte']=='0'){
+							
 								//on affiche les patients en attente
 								echo 'Nom :';
 								echo $tabPatient['nom']."<br>";
@@ -82,7 +83,9 @@
 								echo '<a href="gestionNouveauxInscrits.php?action=accepter&idPatient='.$tabPatient['idPatient'].'"><br>Accepter / </a>';
 								echo '<a href="gestionNouveauxInscrits.php?action=refuser&idPatient='.$tabPatient['idPatient'].'">Refuser</a>';
 								echo '<br><br>';
-							} 
+								
+							 }
+							 $tabPatient = mysqli_fetch_array($resPatient,MYSQLI_BOTH);
 						}
 						if (isset($_GET['action']) AND isset($_GET['idPatient'])){
 							$action = $_GET['action'];
