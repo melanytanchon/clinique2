@@ -38,7 +38,7 @@
 		<div id="container">
 			<div id="content">
 				<p><BR><center>
-				<b>Entrez les données saisie lors de l'inscription  :</b></center><BR>
+				<b>Entrez les données saisies lors de l'inscription  :</b></center><BR>
 				<form name="myForm"  method="post" action="annulerInscriptionAction.php">
 				<fieldset>
 					<legend> Vos données: </legend><BR>

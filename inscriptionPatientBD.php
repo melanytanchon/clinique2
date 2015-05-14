@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Récapitulatif</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
@@ -33,12 +33,11 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Inscription</h3>
+      <h3 class="head2">Récapitulatif de votre inscription</h3>
     </div>  
 
 		<div id="container">
 			<div id="content">
-			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
 				<?php 
 					if(!empty($_POST['mail']))
 					{
@@ -50,19 +49,36 @@
 						$nom = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['nom']));
 						$prenom = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['prenom']));
 						$mail = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['mail']));
-						// Je vais crypter le mot de passe.
 						
-						//ajouter l'idSpe à la table medecin
-						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
+						$nomMedecin = mysqli_real_escape_string($connexion, htmlspecialchars($_POST['medecins']));
 
+						
+						//ajouter l'idSpe à la table patient
+						$res = mysqli_query($connexion, "SELECT idSpe FROM specialite WHERE nomSpe =\"".$_POST['specialites']."\"");
 						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
 						$idSpe = $tab[0];
+						
+						//ajouter l'idMedecin à la table patient
+						$res = mysqli_query($connexion, "SELECT idMedecin FROM medecin WHERE nom =\"".$_POST['medecins']."\"");
+						$tab = mysqli_fetch_array($res, MYSQLI_NUM);
+						$idMedecin = $tab[0];
+						
 						mysqli_query($connexion, "INSERT INTO patient VALUES('', '$nom', '$prenom', '$mail','$pwd','','','$idSpe','')");						
 						
 						//recapitulatif des informations données
+						echo '<fieldset>';
+						echo '<legend> Informations contenant vos données personnelles : </legend>';
 						echo "Votre nom est : ".$nom."<br>";
 						echo "Votre prénom est : ".$prenom."<br>";
 						echo "Votre mail est : ".$mail."<br>";
+						echo "Votre mot de passe est : ".$pwd."<br>";
+						echo '</fieldset>';
+						
+						echo '<fieldset>';
+						echo '<legend> Votre médecin et sa spécialité : </legend>';
+						echo "Le médecin choisi est : ".$nomMedecin."<br>";
+						echo "La spécialité choisie est : ".$_POST['specialites']."<br>";
+						echo '</fieldset>';
 					}
 				?>
 			</div>

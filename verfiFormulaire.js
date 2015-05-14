@@ -1,27 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
-	<head>
-		<title>Bienvenue</title>
-		<meta charset="utf-8">
-		<link rel="icon" href="images/favicon.ico">
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<link rel="stylesheet" href="css/touchTouch.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/jquery.js"></script>
-		<script src="js/jquery-migrate-1.1.1.js"></script>
-		<script src="js/jquery.equalheights.js"></script>
-		<script src="js/jquery.ui.totop.js"></script>
-		<script src="js/jquery.tabs.min.js"></script>
-		<script src="js/touchTouch.jquery.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script>
-			$(document).ready(function(){
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				$('.gallery a.gal').touchTouch();
-			}) 
-		</script>
-	</head>
-	<body  class="">
+     <head>
+     <title>Menu</title>
+     <meta charset="utf-8">
+     <link rel="icon" href="images/favicon.ico">
+     <link rel="shortcut icon" href="images/favicon.ico" />
+     <link rel="stylesheet" href="css/touchTouch.css">
+     <link rel="stylesheet" href="css/style.css">
+     <script src="js/jquery.js"></script>
+     <script src="js/jquery-migrate-1.1.1.js"></script>
+     <script src="js/jquery.equalheights.js"></script>
+     <script src="js/jquery.ui.totop.js"></script>
+     <script src="js/jquery.tabs.min.js"></script>
+     <script src="js/touchTouch.jquery.js"></script>
+     <script src="js/jquery.easing.1.3.js"></script>
+     <script>
+        $(document).ready(function(){
+
+          $().UItoTop({ easingType: 'easeOutQuart' });
+         $('.gallery a.gal').touchTouch();
+         
+       }) 
+     </script>
+
+     </head>
+     <body  class="">
+
 <?php include("headerConnexion.php") ?>
 
 <!--==============================Content=================================-->
@@ -29,23 +33,23 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Inscription patient</h3>
+      <h3 class="head2">Inscription</h3>
     </div>  
-	<script type="text/javascript" src="js/formulairePatients.js"></script>
-	<script type="text/javascript" src="verificationFormulaire.js"></script>
+<script type="text/javascript" src="js/formulairePatients.js"></script>
 		<div id="container">
 			<div id="content">
 			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
-				<form name="myForm"  method="post" action="inscriptionPatientBD.php" onsubmit="return check()">
+			
+				<form name="myForm"  method="post" action="inscriptionPatientBD.php">
 					<BR>
 					<fieldset>
 						<legend> A propos de vous : </legend><BR>
 						<label for="nom">Nom :</label><BR>
-						<Input type = "text" name="nom" placeholder="à remplir"><span id="maZoneNom" class="error"></span><BR><BR>
+						<Input type = "text" name="nom" placeholder="à remplir"><span id="maZoneNom" class="error"></span> <BR>
 						<label for="prenom">Prénom :</label><BR>
-						<Input type = "text" name="prenom" placeholder="à remplir"><span id="maZonePrenom" class="error"></span><BR><BR>
+						<Input type = "text" name="prenom" placeholder="à remplir"><span id="maZonePrenom" class="error"></span> <BR>
 						<label for="mail">E-mail :</label><BR>
-						<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR><BR>
+						<Input type = "text" name="mail" placeholder="à remplir"><span id="maZoneMail" class="error"></span> <BR>
 						<?php
 						
 						$connexion = mysqli_connect("localhost", "root", "e8EfXCjXDNpVvRaB") or die(mysqli_error());
@@ -64,18 +68,18 @@
 						}
 						
 						echo "</select><span id=\"loader\" style=\"display: none;\"><img src=\"images/loader.gif\" alt=\"loading\"/></span><BR>";
-						echo "<BR><label for=\"medecins\">Médecins dans cette spécialité:<BR></label>";
+						echo "<label for=\"medecins\">Médecins dans cette spécialité:<BR></label>";
 						echo "<select name=\"medecins\" id=\"medecins\" disabled><option value=\"default\">Choisissez une spécialité</option></select>";
 						//changement au niveau name + </select>
 					?>
 					<BR><BR>
 					</fieldset>
-					<BR><fieldset>
+					<fieldset>
 						<legend> Votre mot de passe :</legend><BR>
 						<label for="pwd">Mot de passe :</label><BR>
-						<input type="password" name="pwd"><span id="maZonePwd" class="error"></span><BR><BR>
+						<input type="password" name="pwd"><span id="maZonePwd" class="error"></span><BR>
 						<label for="pwd2">Confirmation du mot de passe :</label><BR>
-						<input type="password" name="pwd2"><span id="maZonePwd2" class="error"></span><BR><BR>
+						<input type="password" name="pwd2"><span id="maZonePwd" class="error"></span><BR>
 					</fieldset>
 					<p>
 						<Input type ="submit" value ="Valider"/>

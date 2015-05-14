@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-     <title>Menu</title>
+     <title>Récapitulatif</title>
      <meta charset="utf-8">
      <link rel="icon" href="images/favicon.ico">
      <link rel="shortcut icon" href="images/favicon.ico" />
@@ -34,12 +34,10 @@
 
 <div class="container_12">
     <div class="grid_12">
-      <h3 class="head2">Inscription</h3>
+		<h3 class="head2">Récapitulatif de votre inscription</h3>
     </div>  
-
 		<div id="container">
 			<div id="content">
-			<center><img src="images/page3_img7.jpg" alt=""><span></span></a></center>
 				<?php 
 					if(!empty($_POST['mail']))
 					{
@@ -61,9 +59,17 @@
 						mysqli_query($connexion, "INSERT INTO medecin VALUES('', '$nom', '$prenom', '$mail','$pwd','','$idSpe','')");						
 						
 						//recapitulatif des informations données
-						echo "Votre nom est : ".$nom."<br>";
-						echo "Votre prénom est : ".$prenom."<br>";
+						echo '<fieldset>';
+						echo '<legend> Informations contenant vos données personnelles : </legend><BR>';
+						echo "Bienvenue Docteur ".$nom." ".$prenom.",<br>";
 						echo "Votre mail est : ".$mail."<br>";
+						echo "Votre mot de passe est : ".$pwd."<br>";
+						echo '</fieldset><BR>';
+						
+						echo '<fieldset>';
+						echo '<legend> Votre spécialité : </legend><BR>';
+						echo "Vous exercez en : ".$_POST['specialites']."<br>";
+						echo '</fieldset>';
 					}
 				?>
 			</div>

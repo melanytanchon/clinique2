@@ -1,4 +1,4 @@
-Questionnaire
+﻿Questionnaire
 	Fait : le médecin, s'il n'a pas de questionnaire, peut choisir d'en avoir, et donc de le mettre a dispo des patients qui le suivent
 	Ces patients, lorsqu'il se connecte, selon le medecin qu'il le suit, il y aura l'onglet de saisie du questionnaire ou pas
 	Si le medecin du patient met a dispo un questionnaire et que le patient le rempli, il pourra voir les infos
@@ -8,15 +8,7 @@ Compte rendu
 
 
 MailNewletter
-
-
-
-
-
-
-
-
-___________________________
+------------------------------------------------------------------------------------------------------------------------------------------
 Pour l'oral
 
 - Parler de la barre d'onglet horizontale au niveau du header
@@ -25,16 +17,16 @@ Pour l'oral
 
 
 - Pour la connexion :
-	s'il s'agit d'un patient et qu'il n'est pas encore accepter : annulation possible
-	s'il s'agit d'un patient ou d'un medecin entre des données erronnées : page d'erreur
+	s'il s'agit d'un patient et qu'il n'est pas encore accepté : annulation possible
+	si un patient ou un medecin entre des données erronnées : page d'erreur
 
 
 - Pour la page patient:
 	- sur le haut, il peut voir son medecin, et s'il clique dessus, les infos le concernant
 	- si son medecin met a disposition un formulaire, le patient aura sur sa page l'onglet pour le remplir, sinon l'onglet n'apparait pas
 	- il peut suivre son compte rendu
-	- On voit ses propres info
-	- Si le patient dispose d'un questionnaire à disposition, il ne peut pas avoir acces au compte rendu s'il ne l'a pas rempli avant
+	- On voit ses propres infos
+	- Si le patient dispose d'un questionnaire, il ne peut pas avoir acces au compte rendu s'il ne l'a pas rempli avant
 	(car il n'a acces au compte rendu qu'après la consultation, qui n'a lieu qu'après le questionnaire rempli)
 	- Si le questionnaire est rempli mais le compte rendu pas encore, dans ce cas, message pour dire que le médecin n'a pas encore fait 
 	son boulot, sinon affichage du compte rendu

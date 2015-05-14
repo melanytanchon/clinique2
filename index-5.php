@@ -34,7 +34,7 @@
       <div class="grid_12">
       <div class="clear"></div>
       <div class="grid_4">
-        <h3 class="head3">Address</h3>
+        <h3 class="head3">Adresse</h3>
               <div class="map">
                 <address>
                  <dl>
@@ -45,7 +45,7 @@
                  <dd><span>Telephone:</span>+33 (0)7 00 00 00 00</dd>
                  <dd>E-mail: <a href="#" class="col2">duroux@clinique.duroux.fr</a></dd>                              </dl>
                  </address>
-                 <p>Nésitez pas à contacter la clinique Duroux en cas de besoin d'information(s) ou de problème(s).</p>
+                 <p>Nésitez pas à contacter la clinique Duroux pour toute(s) information(s) complémentaire(s).</p>
               </div>        
           </div>
       </div>

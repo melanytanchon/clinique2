@@ -25,7 +25,6 @@
 
 <?php include("headerDeconnexion.php") ?>
  
-
 <!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
 
