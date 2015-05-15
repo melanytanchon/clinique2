@@ -33,9 +33,9 @@
       <h3 class="head2">Compte rendu</h3>	  
     </div> 
 		<div id="content">
-		<script type="text/javascript" src="verfiFormulaireCR.js"></script>
+		
 			<center><img src="images/info.png" alt="" align = center><span></span><br><br><br></center>
-			<form name="myForm"  method="post" action="genererCompteRenduAction.php" onsubmit="return check()">
+			<form name="myForm"  method="post" action="genererCompteRenduAction.php">
 			<BR>
 			<fieldset>
 						<legend>Suivi du patient</legend><BR>
