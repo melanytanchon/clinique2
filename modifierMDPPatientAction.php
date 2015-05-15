@@ -61,7 +61,7 @@
 						</div>';
 					
 						if ($mdp != ''){
-						mysqli_query($connexion, "UPDATE patient SET 'pwd' = $mdp WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE patient SET pwd = '$mdp' WHERE $id=idPatient");
 						$_SESSION['pwd']=$mdp;
 						echo '<center>
 						Votre mdp: '.$mdp.'<br>';
@@ -80,7 +80,7 @@
 							</div>
 						</div>';
 						if ($mail != ''){
-						mysqli_query($connexion, "UPDATE patient SET 'mail' = $mail WHERE $id=idPatient");
+						mysqli_query($connexion, "UPDATE patient SET mail = '$mail' WHERE $id=idPatient");
 						$_SESSION['mail']=$mail;
 						echo '<center>
 						Votre mail: '.$mail.'<br>';
@@ -108,7 +108,8 @@
      </div>
  </div>
 
-  </div>         
+  </div>
+</div>  
 
 <!--==============================footer=================================-->
 

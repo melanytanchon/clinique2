@@ -63,9 +63,9 @@
 										//echo $choix;
 										//on ajoute le medecin dans la base de données
 										mysqli_query($connexion, "INSERT INTO medecin VALUES('', '$nom', '$prenom', '$mail','0000','1','$idSpe','','0')");
-										include("mailAjoutMedecin.php");
+										//include("mailAjoutMedecin.php");
 										//sendEmail($mail,$nom,$prenom,$_POST['specialites']); je n'utilise pas le vrai mail du destinataire pour ne pas spamer des personnes inconnues
-										sendEmail($nom,$prenom,$_POST['specialites']);
+										//sendEmail($nom,$prenom,$_POST['specialites']);
 										//recapitulatif des informations 
 										echo"<fieldset>";
 										echo"<legend> Récapitulatif concernant le médecin ajouté : </legend>";
@@ -90,8 +90,8 @@
 									else{
 										//on supprime le medecin dans la base de données
 										mysqli_query($connexion, "DELETE FROM medecin WHERE nom='$nom' AND prenom='$prenom' AND mail='$mail')");
-										include("mailSuppressionMedecin.php");
-										sendEmail($nom,$prenom,$_POST['specialites']);
+										//include("mailSuppressionMedecin.php");
+										//sendEmail($nom,$prenom,$_POST['specialites']);
 										//recapitulatif des informations 
 										echo"<fieldset>";
 										echo"<legend> Récapitulatif concernant le médecin supprimé : </legend>";

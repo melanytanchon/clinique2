@@ -2,8 +2,8 @@
 
 <?php
 	function sendEmail($nomDest, $prenomDest, $spe) {
-		
-		$mail ="charlotterame@orange.fr"; // Déclaration de l'adresse de destination.
+		$mail ="melany.tanchon.mt@gmail.com";
+		//$mail ="charlotterame@orange.fr"; // Déclaration de l'adresse de destination.
 		if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
 		{
 			$passage_ligne = "\r\n";

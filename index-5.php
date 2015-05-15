@@ -46,7 +46,7 @@
                  <dd><span>Telephone:</span>+33 (0)7 00 00 00 00</dd>
                  <dd>E-mail: <a href="#" class="col2">duroux@clinique.duroux.fr</a></dd>                              </dl>
                  </address>
-                 <p>Nésitez pas à contacter la clinique Duroux pour toute(s) information(s) complémentaire(s).</p>
+                 <p>N'hésitez pas à contacter la clinique Duroux pour toute(s) information(s) complémentaire(s).</p>
               </div>        
           </div>
       </div>
